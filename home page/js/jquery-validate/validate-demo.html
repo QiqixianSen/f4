@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script type="text/javascript" src="./jquery.validate.js"></script>
+	<style type="text/css">
+		label.error{
+			color:red;
+			margin-left:10px;
+		}
+	</style>
+</head>
+<body>
+	<form id="theform">
+		<p>
+			用户名： <input type="text" name="username">
+		</p>
+		<p>
+			密码： <input type="password" name="password" id="password">
+		</p>
+		<p>
+			确认密码： <input type="password" name="repassword">
+		</p>
+		<p>
+			<input type="submit" value="注册">
+		</p>
+
+	</form>
+</body>
+<script type="text/javascript">
+	//实现表单验证规则
+	$("#theform").validate({
+		//规则rules
+		rules:{
+			//name名称：规则
+			username:{
+				required:true,
+				minlength:6
+			},
+			password:{
+				required:true,
+				rangelength:[6,15]
+			},
+			repassword:{
+				required:true,
+				equalTo:"#password"
+			}
+		},
+		//提示信息messages
+		messages:{
+			//name名称：规则
+			username:{
+				required:"必填",
+				minlength:"最少6位"
+			},
+			password:{
+				required:'必填',
+				rangelength:'长度需在6-15之前'
+			},
+			repassword:{
+				required:'必填',
+				equalTo:"两次密码不一致"
+			}
+		},
+		submitHandler:function(form){
+			console.log(form);
+            // alert("提交事件!");   
+            // form.submit();
+            var data = $(form).serialize();
+            // alert(data);
+            $.post('./register.php',data,function(res){
+            	console.log(res);
+            	if(res.code == 200){
+            		alert(res.message);
+            	}else{
+            		alert(res.message);
+            	}
+            },'json')
+        } 
+	
+	});
+
+	
+</script>
+</html>
