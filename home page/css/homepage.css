@@ -452,6 +452,9 @@
     height:614px;
     width:234px;
 }
+.pho-l{
+    margin-bottom:14px;
+}
 .photo .too:hover {
     box-shadow: 0 0 20px  rgba(0,0,0,0.3) ;
     margin-top:-5px;
@@ -635,15 +638,9 @@
 }
 .pho-l:hover{
     box-shadow: 0 0 20px  rgba(0,0,0,0.3) ;
-<<<<<<< .mine
-    
-    margin-top:-5px;
-=======
     position: relative;
     top: -5px;
->>>>>>> .r20
-<<<<<<< .mine    
-=======}
+}
 .parti .loading{
     background-color: #f5f5f5;
     line-height: 0;
@@ -715,8 +712,6 @@
     text-align: left;
     margin-left:27px;
     margin-top:15px;
-<<<<<<< .mine
->>>>>>> .theirs}=======
 }
 /* 推荐栏 */
 .title .title-rec > a{
@@ -848,7 +843,7 @@
 /* 内容 */
 .clearfix{
     width:1240px;
-    height:420px;
+    height:375px;
 }
 .clearfix >li{
     border-top:1px solid #ffac13;
@@ -960,4 +955,224 @@
 }
 .dotlr{
     display: none;
-}>>>>>>> .r20
+}
+.visual{
+    width:1240px;
+    height: 285px;
+}
+.visual >li{
+    width: 296px;
+    height:285px;
+    background-color: #fff;
+    text-align: center;
+    margin:0px 14px 14px 0px;
+    float: left;
+    position: relative;
+}
+.visual >li:hover{
+    box-shadow: 0 0 20px  rgba(0,0,0,0.3) ;
+    margin-top:-5px;
+}
+.visual > li >img{
+    width:296px;
+    height:180px;
+}
+.visual >li >a{
+    color:#333;
+    font-size: 14px;
+    margin:30px 0px 6px;;
+    display: block;
+}
+.visual >li >a:hover{
+    color:#ff6700;
+}
+.visual >li >p{
+    color:#b0b0b0;
+    font-size:12px;
+}
+.visual >li >span{
+    width:32px;
+    height:20px;
+    display: block;
+    position: absolute;
+    border-radius: 12px;
+    background-color: rgba(0,0,0,0.6);
+    left:10px;
+    top:50%;
+    border:solid 2px #fff;
+    color:#fff;
+}
+.visual >li >span:hover{
+    background-color: #ff6700;
+    border:solid 2px #ff6700;
+}
+
+/* 尾部 */
+.fl{
+    float: left;
+}
+.fr{
+    float:right;
+}
+.main{
+    width: 1150px;
+    margin: 0 auto;
+}
+.introducer-wrap{
+    background: #fff;
+    height: 256px;
+    clear: both;   
+    width:100%;
+    margin-top: 56px;
+    
+}
+.over ul li{
+    float: left;
+}
+.introduce ul li{
+    width: 227px;
+    text-align: center;
+    line-height: 74px;
+    float: left;
+
+
+}
+.introduce ul li a{
+    color: #616161;
+}
+.introduce ul li a i{
+    margin-right: 8px;
+    font-size: 24px;
+}
+.introduce ul li a:hover{
+    color: #ff6700;
+}
+.introduce ul li span{
+    margin-left: 56px;
+    color: #f0f0f0;
+}
+.introduce-link{
+    clear: both;
+    border-top:1px solid #e8e8e8;
+    padding-top: 36px;
+    height: 134px;
+    
+}
+.introduce-link div{
+    
+    float: left;
+}
+.introduce-link div dl{
+    float: left;
+    width: 90px;
+    margin-right: 60px;
+    height: 105px;
+    
+
+}
+.introduce-link div dl dt{
+    color: #424242;
+    font-size: 14px;
+    padding-bottom:20px;
+}
+.introduce-link div dl dd{
+    line-height: 24px;
+}   
+.introduce-link div dl dd a{
+    color: #757575;
+    font-size: 12px;
+}
+.introduce-link .introduce-phone{
+    float:right;
+    width: 236px;
+    text-align: center;
+    border-left: 1px solid #f0f0f0;
+}
+.phone{
+    margin: 0 0 5px;
+    font-size: 22px;
+    line-height: 1;
+    color: #ff6700;
+}
+.time{
+    margin: 0 0 16px;
+    font-size: 12px;
+
+}
+.introduce-phone a{
+    height: 26px;
+    width: 110px;
+    border: 1px solid #ff6700;
+    display: block;
+    text-align: center;
+    line-height: 26px;
+    margin-left: 54px;
+    color: #ff6700;
+    font-size: 12px;
+
+
+}
+.introduce-phone a .icon-iconlianxi{
+    font-size: 12px;
+    margin-right: 3px;
+}
+.introduce-phone a:hover{
+    background: #ff6700;
+    color: #fff;
+}
+.footer-info{
+    padding-top: 27px;
+    height:188px;
+    
+}
+.footer-logo{
+    margin-right: 10px;
+    background: #ff6700;
+    height: 54px;
+    width: 54px;
+    
+}
+
+.footer-logo .icon-xiaomi{
+    color: #fff;
+    line-height: 54px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.footer-info a{
+    font-size: 12px;
+    color: #b0b0b0;
+}
+.footer-info ul li a{
+    color: #757575;
+
+}
+.footer-info ul li{
+    padding: 0 2px;
+    text-align: center;
+}
+.footer-info ul li span{
+    padding-left: 2px;
+    color: #b0b0b0;
+}   
+.footer-info p{
+    clear: both;
+} 
+.footer-right{
+    width: 1086px;
+}
+.footer-right a:hover{
+    color: #ff6700;
+} 
+.logo-pic img{
+    width: 83px;
+    height: 28px;
+
+}
+.slogan{
+    clear: both;
+    text-align: center;
+    height: 42px;
+    padding-top:  30px;
+}
