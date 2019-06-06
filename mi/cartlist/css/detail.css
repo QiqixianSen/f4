@@ -1,0 +1,96 @@
+body{
+    background: #f5f5f5;
+    font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+.main{
+    width: 1150px;
+    margin: 0 auto;
+}
+.nav{
+    background: #333;
+    height: 37px;
+    border-bottom: 1px solid #989898;
+
+}
+.nav li{
+    float: left;
+    line-height: 37px;
+    
+}
+.nav a{
+    color: #b0b0b0;
+    font-size: 12px;
+    padding: 0 6px;
+}
+.nav a:hover{
+    color: #fff;
+}
+.nav li span{
+    color: #3e3e3e;
+}
+.nav-cart{
+    width: 113px;
+    margin-left: 17px;
+    background: #424242;
+    line-height: 37px;
+    color: #b0b0b0;
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+
+}
+
+.nav-cart .icon-03f{
+    padding-right: 6px;
+    font-size: 14px;
+}
+.cart-list{
+    position: absolute;
+    bottom: -110px;
+    left: -184px;
+    background: #ffffff;
+    width: 297px;
+    display: none;
+}
+.app{
+    position: relative;
+}
+.erweima{
+    position: absolute;
+    bottom: -159px;
+    right: -50%; 
+    width: 105px;
+    background: #fff;
+    padding: 18px 0 0 14px;
+    display: none;
+}
+.erweima img{
+    width: 90px;
+    height: 90px;
+}
+.erweima span{
+   padding-left:5px;
+    font-size: 14px;
+}
+
+/* .erweima em{
+    position: relative;
+    width: 0;
+    height: 0;
+    border-width: 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+    top: -10px;
+    left: 50px;
+} */
+
+.header{
+    width: 100%;
+    background: #fff;
+    
+    
+}
+.head{
+    height: 93px;
+    
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>小米帐号 -注册</title>
+<link rel="stylesheet" href="../css/reg.css">
+   
+
+</head>
+
+<body>
+   <div class="wrap">
+      <div class="box">
+            <div class="main">
+
+               <div><a class="milogo" href="javascript:void(0)"></a></div>
+               <div class="title">
+                  <p>注册小米账号</p>
+               </div>
+               <div>
+                  <div class="regbox">
+                     <dl>
+                        <dt>
+                           <p>您注册的手机号为<span class="ph-num"></span></p>
+                           <p>请设置您的密码：</p>
+                        </dt>
+                        <dd>
+                           <div class="inputbg">
+                              <label class="labelbox" for="">
+                              <input class="set-password" type="text" name="password" placeholder="请输入密码">
+                              </label>
+                           </div>
+                        </dd>
+                        <dd>
+                           <div class="inputbg">
+                              <label class="labelbox" for="">
+                                 <input class="repassword" type="password" placeholder="请输入确认密码">
+                              </label>
+                           </div>
+                        </dd>
+                     </dl>
+                     <div class="error-password" style="display:block;">
+                        <div class="dis_box">
+                           <i class="icon-error" style="display:none;"></i>
+                           <span>密码长度6~16位，数字、字母、字符至少包含两种</span>
+                        </div>
+                     </div>
+                     <div>
+                        <input type="submit" name="" id="btn" value="立即注册" />
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+      </div>
+   </div>
+   
+   <div class="footer">
+      <div class="foot-font">
+         <ul>
+            <li><a href="#">简体</a>|</li>
+            <li><a href="#">繁体</a>|</li>
+            <li><a href="#">English</a>|</li>
+            <li><a href="#">常见问题</a></li>
+         </ul>
+      </div>
+      <p class="foot-copy">
+         小米公司版权所有-京ICP备10046444-
+         <a href="#"
+            ><img src="../images/ghs.png" alt="" />京公网安备11010802020134号</a
+         >
+         -京ICP证110507号
+      </p>
+      </div>
+</body>
+<script src="../js/jquery.js"></script>
+<script>
+   $(function(){
+     var phnum=location.search.slice(1);
+     
+     $('.ph-num').html(phnum);
+
+     
+     $('#btn').click(function(){
+        var pwd=$('.set-password').val();
+        var rePwd=$('.repassword').val();
+        var reg=/^[a-zA-Z0-9-_]{6,16}$/;
+
+        if(pwd==''){
+           $('.inputbg>label').addClass('color');
+           $('.dis_box').children('i').css('display','inline-block').next().html('请输入密码');
+        }else if(!reg.test(pwd)){
+            $('.inputbg>label').eq(0).addClass('color');
+            $('.inputbg>label').eq(1).removeClass('color');
+            $('.dis_box').children('i').css('display','inline-block').next().html('密码长度6~16位，数字、字母、字符至少包含两种');
+        }else if(reg.test(pwd) && pwd!=rePwd){
+           
+         $('.inputbg>label').eq(0).removeClass('color');
+         $('.inputbg>label').eq(1).addClass('color');
+         $('.dis_box').children('i').css('display','inline-block').next().html('密码输入不一致');
+        }else if(pwd==rePwd){
+         
+         $('.inputbg>label').eq(0).removeClass('color');
+         $('.inputbg>label').eq(1).removeClass('color');
+         $('.dis_box').children('i').css('display','none').next().html('');
+        console.log(666)
+        $.ajax({
+         'type': "post",
+         'url': "../js/reg.php",
+         'dataType': "json",
+         'data':{
+         "usename":phnum,
+         'pwd':pwd
+         },
+         'success': function(res) {
+            console.log(res);
+            if(res.code==-1){
+               alert(res.message);
+               location.href="http://127.0.0.1/mi/chuji/html/register.html"
+            }else{
+               alert(res.message);
+               location.href="http://127.0.0.1/mi/chuji/html/login.html"
+            }
+            
+            }    
+         })
+      }
+      })
+
+      $('.inputbg input').blur(function(){
+        var pwd=$('.set-password').val();
+        var rePwd=$('.repassword').val();
+        var reg=/^[a-zA-Z0-9-_]{6,16}$/;
+
+        if(pwd==''){
+           $('.inputbg>label').addClass('color');
+           $('.dis_box').children('i').css('display','inline-block').next().html('请输入密码');
+        }else if(!reg.test(pwd)){
+            $('.inputbg>label').eq(0).addClass('color');
+            $('.inputbg>label').eq(1).removeClass('color');
+            $('.dis_box').children('i').css('display','inline-block').next().html('密码长度6~16位，数字、字母、字符至少包含两种');
+        }else if(reg.test(pwd) && pwd!=rePwd){
+           
+         $('.inputbg>label').eq(0).removeClass('color');
+         $('.inputbg>label').eq(1).addClass('color');
+         $('.dis_box').children('i').css('display','inline-block').next().html('密码输入不一致');
+        }else if(pwd==rePwd){
+         
+         $('.inputbg>label').eq(0).removeClass('color');
+         $('.inputbg>label').eq(1).removeClass('color');
+         $('.dis_box').children('i').css('display','none').next().html('');
+        }
+        
+      })
+
+      $('.inputbg input').keyup(function(){
+         $('.inputbg>label').eq(0).removeClass('color');
+         $('.inputbg>label').eq(1).removeClass('color');
+         $('.dis_box').children('i').css('display','none').next().html('密码长度6~16位，数字、字母、字符至少包含两种');
+      })
+      
+      
+   })
+
+
+
+
+
+</script>
+</html>

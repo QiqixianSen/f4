@@ -1,0 +1,17 @@
+body,html,ul,li,ol,a,h1,h2,h3,h4,h5,h6,dl,dt,dd,form,input,a,i,em,strong,b,span,img,p,table{margin: 0;padding: 0;}
+ul li,ol li{list-style: none;}
+a{text-decoration: none;}
+html,body{height:100%;}
+body{font-size: 14px ; }
+.clearfix:after{content: " ";clear: both;overflow: hidden;visibility:hidden;display:block;height: 0;font-size:0;}
+h1,h2,h3,h4,h5,h6,i{font-weight: normal;}
+.fl{float: left;}
+.fr{float: right;}
+i,em{
+    font-style: normal;
+
+
+}
+strong,b{
+    font-weight: normal;
+}

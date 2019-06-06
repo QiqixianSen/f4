@@ -1,0 +1,6 @@
+{
+   "qq":"https://account.xiaomi.com/pass/sns/login/auth?appid=100284651&&callback=https%3A%2F%2Forder.mi.com%2Flogin%2Fcallback%3Ffollowup%3Dhttps%253A%252F%252Fwww.mi.com%252F%253Fclient_id%253D180100041086%26sign%3DMzU2MGI1MjBiZWJhOTQyYTdmZmRhZDViM2NkMTFiMWQwZDAyMjE4ZQ%2C%2C&sid=mi_eshop",
+   "weibo":"https://account.xiaomi.com/pass/sns/login/auth?appid=2996826273&&callback=https%3A%2F%2Forder.mi.com%2Flogin%2Fcallback%3Ffollowup%3Dhttps%253A%252F%252Fwww.mi.com%252F%253Fclient_id%253D180100041086%26sign%3DMzU2MGI1MjBiZWJhOTQyYTdmZmRhZDViM2NkMTFiMWQwZDAyMjE4ZQ%2C%2C&sid=mi_eshop",
+   "pay":"https://auth.alipay.com/login/express.htm?goto=https%3A%2F%2Fmemberexprod.alipay.com%3A443%2Fauthorize%2FuserAuthQuickLoginAction.htm%3Fe_i_i_d%3D7adbb1913c00586a3c3fc8d19ac980dc",
+   "weixin":"https://open.weixin.qq.com/connect/qrconnect?appid=wxa21de3acc0d5e79b&redirect_uri=https%3A%2F%2Faccount.xiaomi.com%2Fpass%2Fsns%2Flogin%2Fload&response_type=code&scope=snsapi_login&state=WEIXIN917171#wechat_redirect"
+}

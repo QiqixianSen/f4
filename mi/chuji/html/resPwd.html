@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>小米账号-重置密码</title>
+    <link rel="stylesheet" href="../css/respwd.css" />
+    <link rel="icon" href="../images/bitbug_favicon.ico" type="img/x-ico" />
+    <script src="../js/jquery.js"></script>
+  </head>
+  <body>
+    <div>
+      <div class="wrap">
+        <div class="box">
+          <div class="main">
+            <div><a class="milogo" href="javascript:void(0)"></a></div>
+            <div class="title">
+              <p>重置密码</p>
+            </div>
+            <div>
+              <div class="regbox">
+                <p>请输入注册的邮箱地址、手机号码或小米账号</p>
+                <div class="inp">
+                  <input type="text" placeholder="邮箱/手机号码/小米账号" />
+                  <!-- (^[\w.\-]+@(?:[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\.)+[A-Za-z]{2,6}$)|(^1\d{10}$)|(^\d{3,}$)|(^\++\d{2,}$) -->
+                  <div class="dis-box" style="display:none">
+                    <i class="icon-error"></i>
+                    <span>账号名称格式错误</span>
+                  </div>
+                  <input class="pic-num" type="text" placeholder="图片验证码" />
+                  <div id="code2"></div>
+                  <div class="dis-box" style="display:none">
+                    <i class="icon-error"></i>
+                    <span>验证码错误或已过期</span>
+                  </div>
+                </div>
+                <div class="phone-box">
+                  用户输入手机号码时请正确选择区域前缀，如：台湾：+8869*******，香港：+8526*******
+                  <a href="javascript:void(0)" id="help-a">帮助</a>
+                </div>
+                <div>
+                  <input type="submit" name="" id="btn" value="下一步" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--footer开始-->
+      <div class="footer">
+        <div class="foot-font">
+          <ul>
+            <li><a href="#">简体</a>|</li>
+            <li><a href="#">繁体</a>|</li>
+            <li><a href="#">English</a>|</li>
+            <li><a href="#">常见问题</a></li>
+          </ul>
+        </div>
+        <p class="foot-copy">
+          小米公司版权所有-京ICP备10046444-
+          <a href="#"
+            ><img src="../images/ghs.png" alt="" />京公网安备11010802020134号</a
+          >
+          -京ICP证110507号
+        </p>
+      </div>
+      <!--footer结束-->
+    </div>
+    <div id="help" style="display:none;">
+      <div class="help"></div>
+      <div class="help-main">
+        <div class="help-head">
+          请选择地区代码
+          <span class="close">X</span>
+        </div>
+        <div class="def-country">
+          <div class="result-country">中国(+86)</div>
+          <i class="icon"></i>
+          <div class="dis-country" style="display:none;">
+            <input type="text" class="seach" />
+            <ul class="">
+              <!-- <li></li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="btn-box">
+          <input type="submit" name="" id="btn-yes" value="确定" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../js/conment.js"></script>
+  <script>
+    $(function() {
+      //页面初始化就显示验证码
+      showYZM();
+
+      //点击验证码换
+      $("#code2").click(function() {
+        showYZM();
+      });
+
+      //ajax请求接收国家地区信息
+      $.ajax({
+        type: "post",
+        url: "../js/country.json",
+        cahe: false,
+        dataType: "json",
+        success: function(res) {
+          // console.log(res);
+          var str = ``;
+          for (var i = 0; i < res.length; i++) {
+            str += `<li>${res[i]}</li>`;
+          }
+          $(".def-country ul").html(str);
+        }
+      });
+
+      //ajax请求接收电话信息
+      $.ajax({
+        type: "post",
+        url: "../js/phone.json",
+        cahe: false,
+        dataType: "json",
+        success: function(res) {
+          // console.log(res);
+          var str = ``;
+          for (var i = 0; i < res.length; i++) {
+            var span = $("<span></span>");
+            span.html(res[i]);
+            $(".def-country ul>li")
+              .eq(i)
+              .append(span);
+          }
+        }
+      });
+
+      //点击帮助出现遮挡层
+      $("#help-a").click(function() {
+        $("#help").css("display", "block");
+      });
+
+      //点击遮挡层的取消键
+      $(".close").click(function() {
+        $("#help").css("display", "none");
+      });
+
+      //点击遮挡层的确定
+      $("#btn-yes").on("click", function() {
+        $(".inp>input")
+          .eq(0)
+          .val(
+            $(".dis-country>ul>li")
+              .eq(index)
+              .children("span")
+              .html() + " "
+          );
+        $(".close").click();
+      });
+
+      //点击国家的框
+      $(".def-country").click(function() {
+        $(".dis-country").css("display", "block");
+        $(".btn-box").css("display", "none");
+      });
+
+      //鼠标移入li中背景切换
+      $(".dis-country>ul").on("mouseover", "li", function() {
+        $(this)
+          .addClass("bg-color")
+          .siblings()
+          .removeClass("bg-color");
+      });
+
+      var index = 0;
+      //鼠标点击li，result-country内容改为li的内容
+      $(".dis-country>ul").on("click", "li", function() {
+        index = $(this).index();
+        $(".result-country").html($(this).text());
+        $(".dis-country").css("display", "none");
+        $(".btn-box").css("display", "block");
+        return false;
+        console.log("hha");
+      });
+
+      $("#btn").click(function() {
+        var phone = $(".inp>input")
+          .eq(0)
+          .val();
+        var picnum = $(".pic-num").val();
+        var yzm = $("#code2").text();
+
+        var reg = /(^\w+((-w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$)|(^1\d{10}$)|(^\d{3,}$)|(^\w{5,}$)/;
+
+        var phonum = phone;
+        if (phone.indexOf("+") == 0) {
+          phonum = phone.split(" ")[1];
+        }
+
+        if (phonum == "") {
+          $(".inp>input")
+            .eq(0)
+            .addClass("color");
+          $(".dis-box")
+            .eq(0)
+            .css("display", "block")
+            .children("span")
+            .html("账号不能为空");
+        } else if (!reg.test(phonum)) {
+          $(".inp>input")
+            .eq(0)
+            .addClass("color");
+          $(".dis-box")
+            .eq(0)
+            .css("display", "block")
+            .children("span")
+            .html("账号名称格式错误");
+        } else if (reg.test(phonum) && picnum == "") {
+          $(".dis-box")
+            .eq(0)
+            .css("display", "none");
+
+          $(".dis-box")
+            .eq(1)
+            .css("display", "block")
+            .children("span")
+            .html("验证码不能为空");
+          $(".inp>input")
+            .eq(0)
+            .removeClass("color");
+          $(".inp>input")
+            .eq(1)
+            .addClass("color");
+        } else if (reg.test(phonum) && picnum !== yzm) {
+          $(".dis-box")
+            .eq(1)
+            .css("display", "block")
+            .children("span")
+            .html("验证码错误");
+
+          $(".inp>input")
+            .eq(1)
+            .addClass("color");
+        } else if (reg.test(phonum) && picnum == yzm) {
+          $(".dis-box")
+            .eq(0)
+            .css("display", "none");
+
+          $(".dis-box")
+            .eq(1)
+            .css("display", "none");
+          $(".inp>input")
+            .eq(0)
+            .removeClass("color");
+          $(".inp>input")
+            .eq(1)
+            .removeClass("color");
+
+          $.ajax({
+            type: "post",
+            url: "../js/respwd.php",
+            dataType: "json",
+            data:{
+            "usename":phonum
+            },
+            success: function(res){
+              console.log(res);
+              if(res.code==200){
+                location.href='http://127.0.0.1/mi/chuji/html/repwd.html?'+phonum;
+              }else{
+                alert(res.message)
+                location.reload();
+              }
+            }
+          })
+
+        }
+      });
+
+      $(".inp>input").blur(function() {
+        var phone = $(".inp>input")
+          .eq(0)
+          .val();
+        var picnum = $(".pic-num").val();
+        var yzm = $("#code2").text();
+
+        var reg = /(^\w+((-w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$)|(^1\d{10}$)|(^\d{3,}$)|(^\w{5,}$)/;
+
+        var phonum = phone;
+        if (phone.indexOf("+") == 0) {
+          phonum = phone.split(" ")[1];
+        }
+
+        if (phonum == "") {
+          $(".inp>input")
+            .eq(0)
+            .addClass("color");
+          $(".dis-box")
+            .eq(0)
+            .css("display", "block")
+            .children("span")
+            .html("账号不能为空");
+        } else if (!reg.test(phonum)) {
+          $(".inp>input")
+            .eq(0)
+            .addClass("color");
+          $(".dis-box")
+            .eq(0)
+            .css("display", "block")
+            .children("span")
+            .html("账号名称格式错误");
+        } else if (reg.test(phonum) && picnum == "") {
+          $(".dis-box")
+            .eq(0)
+            .css("display", "none");
+
+          $(".dis-box")
+            .eq(1)
+            .css("display", "block")
+            .children("span")
+            .html("验证码不能为空");
+          $(".inp>input")
+            .eq(0)
+            .removeClass("color");
+          $(".inp>input")
+            .eq(1)
+            .addClass("color");
+        } else if (reg.test(phonum) && picnum !== yzm) {
+          $(".dis-box")
+            .eq(1)
+            .css("display", "block")
+            .children("span")
+            .html("验证码错误");
+
+          $(".inp>input")
+            .eq(1)
+            .addClass("color");
+        } else if (reg.test(phonum) && picnum == yzm) {
+          $(".dis-box")
+            .eq(0)
+            .css("display", "none");
+
+          $(".dis-box")
+            .eq(1)
+            .css("display", "none");
+          $(".inp>input")
+            .eq(0)
+            .removeClass("color");
+          $(".inp>input")
+            .eq(1)
+            .removeClass("color");
+        }
+      });
+
+      $(".inp>input").keyup(function() {
+        $(".dis-box")
+          .eq(0)
+          .css("display", "none");
+
+        $(".dis-box")
+          .eq(1)
+          .css("display", "none");
+        $(".inp>input")
+          .eq(0)
+          .removeClass("color");
+        $(".inp>input")
+          .eq(1)
+          .removeClass("color");
+      });
+    });
+
+    //展示验证码
+    function showYZM() {
+      $("#code2").html("");
+      var yzm = getYZM(5);
+      for (let i = 0; i < 5; i++) {
+        var span = $("<span></span>");
+        span.html(yzm[i]);
+        span.css("color", getColor);
+        $("#code2").append(span);
+      }
+    }
+  </script>
+</html>

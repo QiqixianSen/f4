@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>小米账号-登录</title>
+    <link rel="stylesheet" href="../css/iconfont.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-box">
+        <a href="http://127.0.0.1/mi/home%20page/homepage.html" class="logo">
+          <img src="../images/milogo.png" alt="" />
+          <div>
+            <p>小米商城</p>
+            <span>让每个人都能享受科技的乐趣</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="big-box">
+      <div class="big-bg">
+        <a href="http://127.0.0.1/mi/home%20page/homepage.html" class="big-bg-a"></a>
+        <div class="login-box">
+          <div class="login">
+            <div class="login-nav">
+              <a class="login-left color" href="javascript:void(0)">账号登录</a>
+              <a class="login-right" href="javascript:void(0)">扫码登录</a>
+            </div>
+            <!-- 账号登录 -->
+            <div class="login-form" style="display:block">
+              <!-- 用户名登录 -->
+              <form action="#" id="login" style="display:block">
+                <div>
+                  <input type="text" id="name-zh" placeholder="邮箱/手机号码/小米ID" />
+
+                  <input type="password" id="pwd-zh" placeholder="密码" />
+                </div>
+
+                <!-- 错误提示 -->
+                <div class="un-box" id="notice" style="display: none">
+                  <i class="icon-error"></i>
+                  <span>密码错误</span>
+                </div>
+                <div id="btn-zh">
+                  <input type="button" value="登录" />
+                </div>
+              </form>
+              <!-- 用户名登录结束 -->
+
+              <!-- 手机登录 -->
+              <form action="#" id="phone-login" style="display:none">
+                <div>
+                  <div class="phone-bef"><span>+86</span></div>
+                  <input class="inp1" type="text" placeholder="手机号码" />
+                </div>
+                <div>
+                  <input class="inp2" type="text" placeholder="短信验证码" />
+                  <div class="xin-bef">
+                    <a href="javascript:;">获取验证码</a>
+                  </div>
+                </div>
+                <!-- 错误提示 -->
+                <div class="un-box" id="notice-sj" style="display: none">
+                  <i class="icon-error"></i>
+                  <span>密码错误</span>
+                </div>
+
+                <div id="btn-sj">
+                  <input type="button" value="立即登录/注册" />
+                </div>
+              </form>
+              <!-- 手机登录jies -->
+
+              <div class="login-area">
+                <a href="javascript:void(0)" style="float:left" class="color"
+                  >手机短信登录/注册</a
+                >
+                <div style="float:right">
+                  <span><a href="http://127.0.0.1/mi/chuji/html/register.html">立即注册</a></span>
+                  <span>|</span>
+                  <span><a href="http://127.0.0.1/mi/chuji/html/resPwd.html">忘记密码?</a></span>
+                </div>
+              </div>
+
+              <fieldset>
+                <legend>其他方式登录</legend>
+              </fieldset>
+              <div class="icon">
+                <a href="javascript:void(0)" class="qq iconfont icon-QQ"></a>
+                <a
+                  href="javascript:void(0)"
+                  class="weibo iconfont icon-weibo"
+                ></a>
+                <a
+                  href="javascript:void(0)"
+                  class="pay iconfont icon-zhifubao"
+                ></a>
+                <a
+                  href="javascript:void(0)"
+                  class="wechat iconfont icon-weixin"
+                ></a>
+              </div>
+            </div>
+            <!-- 账号登录结束 -->
+
+            <!-- 扫码登录 -->
+            <div class="login-sm" style="display:none">
+              <div class="login-sm-box">
+                <div class="cm-img"><img src="../images/ewm.png" alt="" /></div>
+                <div class="cm-txt">
+                  <p>
+                    "使用"<span>小米商城APP</span>"扫一扫"
+                  </p>
+                  <p>小米手机可打开「设置」>「小米帐号」扫码登录</p>
+                </div>
+              </div>
+            </div>
+            <!-- 扫码登录结束 -->
+          </div>
+        </div>
+      </div>
+      <div class="write"></div>
+    </div>
+
+    <div class="footer">
+      <div class="foot-font">
+        <ul>
+          <li><a href="#">简体</a>|</li>
+          <li><a href="#">繁体</a>|</li>
+          <li><a href="#">English</a>|</li>
+          <li><a href="#">常见问题</a></li>
+        </ul>
+      </div>
+      <p class="foot-copy">
+        小米公司版权所有-京ICP备10046444-
+        <a href="#"
+          ><img src="../images/ghs.png" alt="" />京公网安备11010802020134号</a
+        >
+        -京ICP证110507号
+      </p>
+    </div>
+  </body>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/login.js"></script>
+</html>

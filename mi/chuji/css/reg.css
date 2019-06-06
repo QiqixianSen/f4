@@ -1,0 +1,153 @@
+html,body,header,nav,dt,dd,dl,article,div,span,input,ul,li,a,img,p,section,footer{
+   margin: 0;padding: 0;
+   /* display: block; */
+   box-sizing: border-box;
+}
+
+body{
+   
+   font-size: 14px;
+   background: #f9f9f9;
+}
+ul li{
+   list-style: none;
+}
+
+.wrap{
+   width:100%;
+   min-height: 100%;
+   height:auto;
+  
+}
+.box{
+   
+   background: #fff;
+   width:854px;
+   height:495px;
+   margin:20px auto 0;
+   
+}
+.box .main{
+   padding: 0px 34px 0;
+}
+.milogo {
+   background: url(../images/milogo.png) no-repeat;
+   height: 48px;
+   width: 49px;
+   margin: 0 auto;
+   padding-bottom: 94px;
+   display: block;
+ }
+ .main .title {
+   font-size: 30px;
+   font-weight: 400;
+   text-align: center;
+ }
+ .main .regbox {
+   margin: 0 auto;
+   width: 332px;
+   height: 306px;
+   padding: 30px 0;
+ }
+.regbox dl dt{
+   margin: 15px 0;
+}
+.regbox dl dt .ph-num{
+   color: #ff6700;
+}
+
+
+.regbox dl dt p{
+   line-height: 20px;
+   color: #666;
+   font-weight: 700
+}
+.inputbg{
+   padding-bottom: 15px;
+}
+.inputbg >label{
+   border: 1px solid #e8e8e8;
+   height: 40px;
+   line-height: 40px;
+   display: inline-block;
+   padding: 0;
+   margin: 0;
+   outline: 0 none;
+}
+.inputbg .labelbox.color{
+   border: 1px solid #f66 ;
+}
+.inputbg input{
+   height: 20px;
+   line-height: 20px;
+   padding: 10px;
+   width: 330px;
+   color: #333;
+   border: 0 none;
+   outline: none;
+}
+.dis_box{
+   margin-bottom: 5px;
+   line-height: 20px;
+
+   cursor: pointer;
+   display: inline-block;
+}
+
+.dis_box i {
+   background: url(../images/icon_user.png) no-repeat;
+   display: inline-block;
+   width: 12px;
+   height: 18px;
+   background-position: left -41px top 2px;
+   background-size: 53px;
+   vertical-align: middle;
+  
+ }
+ .dis_box span{
+   color: #666;
+   
+ }
+#btn {
+   background-color: #ff6700;
+   margin-top: 15px;
+   border: 1px solid rgba(186, 186, 186, 0.3);
+   width: 332px;
+   height: 42px;
+   color: #fff;
+   cursor: pointer;
+   outline: none;
+ }
+
+
+
+
+
+
+.footer {
+   width: 100%;
+   height: 80px;
+ }
+ .foot-font {
+   text-align: center;
+ }
+ .foot-font ul li {
+   display: inline-block;
+   padding-top: 10px;
+ }
+ .foot-font ul li a {
+   padding: 0 10px;
+   color: #757575;
+ }
+ .foot-font ul li a:hover {
+   color: #333;
+ }
+ .foot-copy {
+   padding: 10px 0;
+   text-align: center;
+   color: #9d9d9d;
+ }
+ .foot-copy a {
+   color: #9d9d9d;
+ }
+ 
