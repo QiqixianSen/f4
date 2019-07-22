@@ -5,3 +5,4 @@ import App from "./App";
 import "./statics/style/reset.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
+
