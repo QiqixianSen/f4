@@ -1,0 +1,43 @@
+@import "../../../../statics/style/mixin.scss";
+@import "../../../../statics/style/px2rem.scss";
+.home-header {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: px2rem(44);
+    justify-content: space-between;
+    padding: 0 px2rem(10);
+    @include border-bottom;
+    line-height: px2rem(44);
+    .header-left {
+        display: flex;
+        align-items: center;
+        img {
+            height: px2rem(25);
+            padding: 0 px2rem(8);
+        }
+        span {
+            font-size: px2rem(16);
+            font-weight: 800;
+            padding-left: 4px;
+        }
+    }
+    .header-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        a {
+            padding: 0 px2rem(8);
+            display: block;
+            width: px2rem(24);
+            height: px2rem(24);
+            img {
+                position: relative;
+                top: -5px;
+                width: 100%;
+            }
+        }
+    }
+}
