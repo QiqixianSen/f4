@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -18,7 +19,7 @@ class App extends Component {
           </Switch>
         </div>
       </BrowserRouter>
-    );
+    )
   }
 }
 export default App;
