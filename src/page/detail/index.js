@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Book from './components/Book'
+import Comment from './components/Comment'
 
 class Detail extends Component{
     render(){
       return (
         <div>
-            详情页
+            <Book />
+            <Comment />
         </div>
           
       )

@@ -1,0 +1,52 @@
+@import "../../../src/statics/style/px2rem.scss";
+@import "../../../src/statics/style/mixin.scss";
+.book-detail{
+    margin-top: px2rem(45)
+}
+.book-info{
+    display: flex;
+    height: px2rem(130);
+    display: flex;
+    padding: px2rem(20) px2rem(16)  px2rem(16);
+    overflow: hidden;
+    img{
+        width: px2rem(98);
+        height: px2rem(130);
+        margin-right: px2rem(16);
+        display: block;
+    }
+}
+.book-title{
+    font-size: 18px;
+    color: #333;
+    line-height: px2rem(24);
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    padding-top: px2rem(5)
+}
+.book-author{
+    color: #999;
+    padding: px2rem(12) 0 px2rem(8);
+    font-size: 14px;
+
+}
+.book-tag{
+    font-size: 14px;
+    color: #999;
+    line-height: px2rem(20);
+    span{
+        margin-right: px2rem(5)
+    }
+}
+.book-choice{
+    display: flex;
+    padding: 0 px2rem(16);
+    justify-content: space-around;
+    .am-button{
+        padding: 0 px2rem(20);
+        
+    }
+}
