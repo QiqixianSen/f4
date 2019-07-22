@@ -1,0 +1,78 @@
+@import "../../../../statics/style/mixin.scss";
+@import "../../../../statics/style/px2rem.scss";
+
+.home-nav {
+    padding: px2rem(12) px2rem(20);
+    height: px2rem(94);
+    width: 100%;
+    box-sizing: border-box;
+    ul {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        li {
+            a {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                i {
+                    display: block;
+                    width: px2rem(44);
+                    height: px2rem(44);
+                    background-image: url("http://img-tailor.11222.cn/pm/book/operate/2017022317384553.png");
+                    background-size: px2rem(44);
+                }
+                p {
+                    font-size: 12px;
+                    text-align: center;
+                }
+            }
+        }
+        li:nth-child(1) {
+            a {
+                i {
+                    background-position: 0 0;
+                }
+            }
+        }
+        li:nth-child(2) {
+            a {
+                i {
+                    background-position: 0 px2rem(44);
+                }
+            }
+        }
+        li:nth-child(3) {
+            a {
+                i {
+                    background-position: 0 px2rem(88);
+                }
+            }
+        }
+        li:nth-child(4) {
+            a {
+                i {
+                    background-position: 0 px2rem(132);
+                }
+            }
+        }
+        li:nth-child(5) {
+            a {
+                i {
+                    background-position: 0 px2rem(176);
+                }
+            }
+        }
+    }
+}
+.home-banner {
+    height: px2rem(58);
+    width: 100%;
+    a {
+        display: block;
+        img {
+            width: 100%;
+        }
+    }
+}
