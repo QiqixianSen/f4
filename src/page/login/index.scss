@@ -1,0 +1,77 @@
+@import "../../../src/statics/style/mixin.scss";
+@import "../../../src/statics/style/px2rem.scss";
+
+html,
+body,
+#root {
+  height: 100%;
+  background-color: #fff;
+  font-size: 16px;
+}
+.muan {
+  border-top: 1px #e6e7ed solid;
+  font-size: 16px;
+}
+.min {
+  width: 100%;
+  padding: px2rem(46) px2rem(28) 0;
+}
+.login {
+  background-color: #fff;
+}
+.agess {
+  margin: px2rem(16) 0 0;
+  padding: px2rem(20) px2rem(28) 0;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  span {
+    color: #108ee9;
+    line-height: px2rem(24);
+  }
+}
+.btn {
+  margin: px2rem(16);
+}
+.toreg {
+  margin: px2rem(16);
+  font-size: 14px;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+  .toreg-two {
+    color: #108ee9;
+  }
+}
+.min .check {
+  position: absolute;
+  right: px2rem(46);
+  width: px2rem(60);
+  height: px2rem(27);
+  bottom: 0;
+  background-color: rgba($color: #108ee9, $alpha: 0.3);
+
+  display: block;
+  text-align: center;
+  line-height: px2rem(27);
+}
+.cut {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 14px;
+  color: #108ee9;
+}
+.yzm {
+  height: px2rem(25);
+  width: px2rem(78);
+  background-color: #00c98d;
+  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  line-height: px2rem(25);
+  bottom: 0;
+  right: 0;
+  border-radius: px2rem(4);
+  color: #fff;
+}
