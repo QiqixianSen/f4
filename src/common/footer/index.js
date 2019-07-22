@@ -8,7 +8,7 @@ class Footer extends Component{
             <div className='footer-wrap'>
               <Button type="primary">点击下载客户端</Button>
               <div>
-              <p class="bs-slogan">海量图书，更高品质阅读体验</p>
+              <p className="bs-slogan">海量图书，更高品质阅读体验</p>
               <p>©2016 码农 f4.com</p>
               <p>湘ICP备53078413号-1</p>
               <p>网络文化经营许可证：湘网文[2017]3018-4549号</p>

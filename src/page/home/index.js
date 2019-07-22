@@ -8,6 +8,7 @@ import NewBooks from "./components/NewBooks";
 import Bestsellers from "./components/Bestsellers";
 import Choiceness from "./components/Choiceness";
 import Recommend from "./components/Recommend";
+import Footer from '../../common/footer'
 
 class Home extends Component {
     render() {
@@ -22,6 +23,8 @@ class Home extends Component {
                 <Bestsellers />
                 <Choiceness />
                 <Recommend />
+                <Footer />
+
             </div>
         );
     }

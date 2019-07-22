@@ -7,7 +7,7 @@
 .title-header {
     background: #fff;
     width: 100%;
-    padding: px2rem(16) 0 0 px2rem(8);
+    padding: px2rem(16) 0 px2rem(16) px2rem(8);
     box-sizing: border-box;
     .boy {
         color: #27e072;
@@ -150,16 +150,20 @@
     -webkit-line-clamp: 2;
 }
 
-.choice-li{
-  display: flex;
-  justify-content: space-between;
-  padding: px2rem(20) px2rem(16) px2rem(20) 0;
-  @include border-bottom;
-  img{
-    width: px2rem(60);
-    height: px2rem(80);
-  }
-  
+.new-one {
+    padding: px2rem(16);
+    padding-top: 0;
+    height: px2rem(112);
+    display: flex;
+    @include border-bottom;
+    .new-left {
+        position: relative;
+        margin-right: px2rem(16);
+        img {
+            width: px2rem(84);
+            height: px2rem(112);
+        }
+    }
 }
 .new-title {
     color: #333;
