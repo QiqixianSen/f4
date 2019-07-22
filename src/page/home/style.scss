@@ -7,7 +7,7 @@
 .title-header {
     background: #fff;
     width: 100%;
-    padding: px2rem(16) 0 px2rem(16) px2rem(8);
+    padding: px2rem(16) 0 0 px2rem(8);
     box-sizing: border-box;
     .boy {
         color: #27e072;
@@ -42,7 +42,7 @@
 }
 .title-ul {
     display: flex;
-    padding: px2rem(5) 0 px2rem(16) px2rem(16);
+    padding: px2rem(16) 0 px2rem(16) px2rem(16);
     @include border-bottom;
 }
 .title-li {
@@ -152,10 +152,10 @@
 
 .new-one {
     padding: px2rem(16);
-    padding-top: 0;
     height: px2rem(112);
     display: flex;
     @include border-bottom;
+   
     .new-left {
         position: relative;
         margin-right: px2rem(16);
@@ -165,6 +165,7 @@
         }
     }
 }
+
 .new-title {
     color: #333;
     font-size: 16px;
@@ -222,7 +223,7 @@
 .choice-li {
     display: flex;
     justify-content: space-between;
-    padding: px2rem(5) px2rem(16) px2rem(20) 0;
+    padding: px2rem(16) px2rem(16) px2rem(20) 0;
     @include border-bottom;
     img {
         width: px2rem(60);

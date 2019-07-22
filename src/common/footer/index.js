@@ -5,7 +5,7 @@ import '../index.scss'
 class Footer extends Component{
     render(){
         return(
-            <div className='footer-wrap'>
+            <div className='footer-wrap' style={this.props.style}>
               <Button type="primary">点击下载客户端</Button>
               <div>
               <p className="bs-slogan">海量图书，更高品质阅读体验</p>
