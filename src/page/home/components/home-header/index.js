@@ -18,13 +18,13 @@ class HomeHeader extends Component {
                     <span>小奇小说</span>
                 </div>
                 <div className="header-right">
-                    <Link>
+                    <Link to="/login">
                         <img src={login} alt="" />
                     </Link>
-                    <Link>
+                    <Link to="/bookstore">
                         <img src={bookstore} alt="" />
                     </Link>
-                    <Link>
+                    <Link to="/search">
                         <img src={search} alt="" />
                     </Link>
                 </div>
