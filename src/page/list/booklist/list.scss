@@ -1,0 +1,140 @@
+@import "../../../statics/style/px2rem.scss";
+@import "../../../statics/style/mixin.scss";
+.container {
+  width: px2rem(375);
+  height: px2rem(43);
+  line-height: px2rem(43);
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid  rgba(153, 153, 153, 0.3);
+  .listname {
+    width: px2rem(275);
+    height: 100%;
+    color: #333;
+    font-size: px2rem(16);
+    text-align: center;
+    position: absolute;
+    left: px2rem(50);
+    top: 0;
+  }
+
+  .leftside {
+    width: px2rem(50);
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .rightside {
+    width: px2rem(50);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+.listmain {
+  width: px2rem(375);
+
+  ul {
+    width: 100%;
+
+    li {
+      width: px2rem(359);
+      position: relative;
+      @include border-bottom;
+      height: px2rem(134);
+      padding-left: px2rem(16);
+
+      .textside {
+       display: flex;
+       justify-content: space-around;
+        width: 100%;
+        height: 100%;
+        padding: px2rem(20) px2rem(16) px2rem(20) 0;
+       
+        
+        .textmain {
+          width: px2rem(243);
+          height: px2rem(93);
+          margin-right:px2rem(16);
+          h3 {
+            font-size: px2rem(16);
+            color: #333;
+          }
+          p {
+            height: px2rem(36);
+            font-size: px2rem(12);
+            line-height:px2rem(18);
+            color: #999;
+            margin-top: px2rem(11);
+          }
+          div {
+            height: px2rem(22);
+            margin-top: px2rem(8);
+
+            span {
+              height: px2rem(20);
+              line-height: px2rem(20);
+              border: 1px solid rgba(153, 153, 153, 0.3);
+              border-radius: px2rem(3);
+              font-size: px2rem(10);
+              color: #999;
+              display: inline-block;
+              margin: 0 px2rem(4) 0 0;
+              padding: 0 px2rem(5);
+            }
+          }
+        }
+        .picside {
+          width: px2rem(84);
+          height: px2rem(80);
+          margin-right:px2rem(15);
+          margin-top:px2rem(11);
+          background: #ccc;
+          position: relative;
+
+          .pic1 {
+            width: px2rem(45);
+            height: px2rem(60);
+            z-index: 1;
+            img {
+              display: inline-block;
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              width: px2rem(45);
+              height: px2rem(60);
+            }
+          }
+          .pic3 {
+            width: px2rem(45);
+            height: px2rem(60);
+            z-index: 1;
+            img {
+              display: inline-block;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: px2rem(45);
+              height: px2rem(60);
+            }
+          }
+          .pic2 {
+            width: px2rem(60);
+            height: px2rem(80);
+            img {
+              display: inline-block;
+              position: absolute;
+              left: 15%;
+              bottom: 0;
+              width: px2rem(60);
+              height: px2rem(80);
+              z-index: 3;
+            }
+          }
+        }
+      }
+    }
+  }
+}
