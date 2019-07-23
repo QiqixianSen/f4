@@ -1,9 +1,13 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
+import * as actionCreators from '../store/actionCreators'
 import '../style.scss';
 import '../../../statics/font_1307227_9qrecju4ty/iconfont.css';
 
+
 class Giftware extends Component{
   render(){
+    const {giftList,handleChange}=this.props
     return (
       <div className="home-gift-ware">
         <div>
@@ -13,32 +17,19 @@ class Giftware extends Component{
           </div>
          
           <ul className='title-ul'>
-            <li className='title-li'>
-              <img className='cover-img' src="http://img-tailor.11222.cn/bcv/big/1179627851191.jpg" alt=""/>
-              <p className='book-name'>蛋炒鱿鱼</p>
-              <span className='book-author'>扇叶</span>
+          {giftList.map(item=>{
+            return(
+              <li className='title-li' key={item.bid}>
+                <img className='cover-img' src={item.book_cover} alt=""/>
+                <p className='book-name'>{item.bookname}</p>
+              <span className='book-author'>{item.author_name}</span>
 
             </li>
-            <li className='title-li'>
-              <img className='cover-img' src="http://img-tailor.11222.cn/bcv/big/1179627851191.jpg" alt=""/>
-              <p className='book-name'>蛋炒鱿鱼</p>
-              <span className='book-author'>扇叶</span>
+            )
+          })}
 
-            </li>
-            <li className='title-li'>
-              <img className='cover-img' src="http://img-tailor.11222.cn/bcv/big/1179627851191.jpg" alt=""/>
-              <p className='book-name'>蛋炒鱿鱼</p>
-              <span className='book-author'>扇叶</span>
-
-            </li>
-            <li className='title-li'>
-              <img className='cover-img' src="http://img-tailor.11222.cn/bcv/big/1179627851191.jpg" alt=""/>
-              <p className='book-name'>蛋炒鱿鱼</p>
-              <span className='book-author'>扇叶</span>
-
-            </li>
           </ul>
-          <div className='home-change'>
+          <div className='home-change' onClick={this.props.getList}>
             <span>换一换</span>
             <i className='iconfont icon-huanyihuan'></i>
           </div>
@@ -48,6 +39,25 @@ class Giftware extends Component{
         
     )
 }
-}
+  componentDidMount(){
+    this.props.getList()
+    
+  }
 
-export default Giftware
+}
+const mapState = (state)=>({
+    giftList:state.home.giftList
+
+  
+
+})
+const mapDispatch = (dispatch)=>({
+  getList(){
+    dispatch(actionCreators.getListInfo())
+  },
+  //获取数据
+
+
+})
+
+export default connect(mapState,mapDispatch)(Giftware)

@@ -47,17 +47,28 @@
 }
 .title-li {
     flex: 1;
+    width: 25%
 }
 .cover-img {
     height: px2rem(98);
     width: px2rem(74);
 }
-.book-name,
-.book-author {
+.book-name{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 12px;
+    line-height: px2rem(16);
+    height: px2rem(16);
+    text-align: left;
+    word-break: break-all;
+
+}
+.book-author {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px !important;
     line-height: px2rem(16);
     height: px2rem(16);
     text-align: left;
@@ -83,6 +94,9 @@
         top: px2rem(4);
         padding-left: px2rem(3);
     }
+}
+.home-change:hover{
+    cursor: pointer;
 }
 .white-space {
     height: px2rem(8);
