@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Tabs, Badge, List, InputItem, Button } from "antd-mobile";
+import { Tabs, Badge, List, InputItem, Button, Toast } from "antd-mobile";
 import "./index.scss";
 import NavBar from "../../common/header";
 
@@ -15,6 +15,40 @@ function randomColor() {
   return rgb;
 }
 export default class Login extends Component {
+  state = {
+    phonpass: "",
+    pwd: "",
+    arr: [],
+    bgc: "",
+    value: "",
+    hasError: false,
+    usehasError: false,
+    usevalue: "",
+    checked: "",
+    jiaoyan: "",
+    phonechecked: ""
+  };
+  onErrorClick = () => {
+    if (this.state.hasError) {
+      Toast.info("请输入 11 位的手机号码");
+    }
+  };
+
+  onChange = value => {
+    if (value.replace(/\s/g, "").length < 11) {
+      this.setState({
+        hasError: true
+      });
+    } else {
+      this.setState({
+        hasError: false
+      });
+    }
+    this.setState({
+      value
+    });
+  };
+
   rannum = function(num) {
     let arr = [];
     for (let i = 0; i < num; i++) {
@@ -25,14 +59,11 @@ export default class Login extends Component {
   };
   setarr = () => {
     this.setState({
-      arr: this.rannum(4)
+      arr: this.rannum(4),
+      bgc: randomColor()
     });
   };
   render() {
-    this.state = {
-      arr: [],
-      bgc: ""
-    };
     return (
       <div>
         <NavBar {...this.props}>登录</NavBar>
@@ -54,29 +85,83 @@ export default class Login extends Component {
               {/* 登录表单 */}
               <div className="min">
                 <List>
+                  {/* 账号密码 */}
                   <InputItem
-                    // {...getFieldProps('autofocus')}
+                    onChange={value => {
+                      if (value.replace(/\s/g, "").length < 11) {
+                        this.setState({
+                          usehasError: true
+                        });
+                      } else {
+                        this.setState({
+                          usehasError: false
+                        });
+                      }
+                      this.setState({
+                        usevalue: value
+                      });
+                    }}
                     clear
+                    type="phone"
                     placeholder="请输入手机号/邮箱"
-                    // ref={el => (this.autoFocusInst = el)}
+                    onErrorClick={() => {
+                      if (this.state.usehasError) {
+                        Toast.info("请输入正确的手机号码");
+                      }
+                    }}
+                    value={this.state.usevalue}
+                    error={this.state.usehasError}
                   >
                     账户
                   </InputItem>
                   <InputItem
-                    // {...getFieldProps('focus')}
                     clear
                     placeholder="请输入密码"
-                    // ref={el => (this.inputRef = el)}
+                    onChange={value => {
+                      this.setState({
+                        pwd: value
+                      });
+                    }}
                   >
                     密码
                   </InputItem>
                   <div className="agess">
-                    <input type="radio" />
+                    <input
+                      type="radio"
+                      checked={this.state.checked}
+                      onClick={() => {
+                        this.setState({
+                          checked: this.state.checked === "" ? "checked" : ""
+                        });
+                        console.log(this.state.checked);
+                      }}
+                      onChange={() => {
+                        console.log(222);
+                      }}
+                    />
                     &emsp;同意<span>《阿里文学用户协议》</span>和
                     <span>《隐私服务协议》</span>
                   </div>
                   <div className="btn">
-                    <Button type="primary" disabled>
+                    <Button
+                      type="primary"
+                      disabled={(() => {
+                        console.log(
+                          this.state.checked,
+                          this.state.usevalue,
+                          this.state.pwd
+                        );
+                        if (
+                          this.state.checked !== "" &&
+                          this.state.usevalue !== "" &&
+                          this.state.pwd !== ""
+                        ) {
+                          return false;
+                        } else {
+                          return true;
+                        }
+                      })()}
+                    >
                       登录
                     </Button>
                   </div>
@@ -97,19 +182,33 @@ export default class Login extends Component {
             >
               {/* 登录表单 */}
               <div className="min">
+                {/* 手机验证登码 */}
                 <List>
                   <InputItem
-                    type="phone"
-                    // {...getFieldProps('autofocus')}
                     clear
+                    type="phone"
                     placeholder="请输入手机号"
-                    // ref={el => (this.autoFocusInst = el)}
+                    error={this.state.hasError}
+                    onErrorClick={this.onErrorClick}
+                    onChange={this.onChange}
+                    value={this.state.value}
                   >
                     手机号
                   </InputItem>
-                  <InputItem type="phone" clear placeholder="">
+                  <InputItem
+                    placeholder=""
+                    value={this.state.jiaoyan}
+                    onChange={value => {
+                      this.setState({
+                        jiaoyan: value
+                      });
+                    }}
+                  >
                     校验码
-                    <span className="check">
+                    <span
+                      className="check"
+                      style={{ background: this.state.bgc }}
+                    >
                       {this.rannum(4).map((item, index) => {
                         return (
                           <span
@@ -139,17 +238,51 @@ export default class Login extends Component {
                       换一换
                     </span>
                   </InputItem>
-                  <InputItem>
+                  <InputItem
+                    value={this.state.phonpass}
+                    onChange={value => {
+                      this.setState({
+                        phonpass: value
+                      });
+                    }}
+                  >
                     验证码<span className="yzm">获取验证码</span>
                   </InputItem>
 
                   <div className="agess">
-                    <input type="radio" />
+                    <input
+                      type="radio"
+                      checked={this.state.phonechecked}
+                      onClick={() => {
+                        this.setState({
+                          phonechecked:
+                            this.state.phonechecked === "" ? "checked" : ""
+                        });
+                        // console.log(this.state.checked);
+                      }}
+                      onChange={() => {
+                        // console.log(222);
+                      }}
+                    />
                     &emsp;同意<span>《阿里文学用户协议》</span>和
                     <span>《隐私服务协议》</span>
                   </div>
                   <div className="btn">
-                    <Button type="primary" disabled>
+                    <Button
+                      type="primary"
+                      disabled={(() => {
+                        if (
+                          this.state.phonechecked !== "" &&
+                          this.state.value !== "" &&
+                          this.state.phonpass !== "" &&
+                          this.state.jiaoyan !== ""
+                        ) {
+                          return false;
+                        } else {
+                          return true;
+                        }
+                      })()}
+                    >
                       登录
                     </Button>
                   </div>
