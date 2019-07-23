@@ -3,8 +3,11 @@ import Header from "../../../common/header";
 import Footer from "../../../common/footer";
 import ajax from "../../../ajax/server.js";
 import api from "../../../ajax/api.js";
+import Item from "./item";
 
-export default class index extends Component {
+import "./index.scss";
+
+export default class Ranking extends Component {
     state = {
         boy: [
             {
@@ -141,30 +144,34 @@ export default class index extends Component {
     render() {
         return (
             <div>
-                <Header>分类</Header>
+                <Header {...this.props}>分类</Header>
 
-                <div>
+                <div className="rank-list">
                     <div className="girl">
-                        {this.state.girl.map(item => {
-                            return 
+                        <h2>女生分类</h2>
+                        {this.state.girl.map((item, index) => {
+                            return <Item list={item} key={index} />;
                         })}
                     </div>
                     <div className="boy">
-                        {this.state.girl.map(item => {})}
+                        <h2>男生分类</h2>
+                        {this.state.boy.map((item, index) => {
+                            return <Item list={item} key={index} />;
+                        })}
                     </div>
                 </div>
             </div>
         );
     }
-    componentDidMount() {
-        console.log(11);
-        ajax.post(api.RANK_API, {
-            type: 1,
-            timestamp: 1563800087804,
-            sign: "0d6d614f92bd41918511006e8907302c",
-            shuqi_h5: ""
-        }).then(res => {
-            console.log(res);
-        });
-    }
+    // componentDidMount() {
+    //     console.log(11);
+    //     ajax.post(api.RANK_API, {
+    //         type: 1,
+    //         timestamp: 1563800087804,
+    //         sign: "0d6d614f92bd41918511006e8907302c",
+    //         shuqi_h5: ""
+    //     }).then(res => {
+    //         console.log(res);
+    //     });
+    // }
 }
