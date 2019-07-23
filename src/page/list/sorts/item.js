@@ -8,7 +8,7 @@ class Item extends Component {
         let { list, index } = this.props;
         return (
             <li className="list-item">
-                <Link href="">
+                <Link to="">
                     <div
                         className="img"
                         style={{
