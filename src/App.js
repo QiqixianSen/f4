@@ -8,6 +8,7 @@ import Login from "./page/login";
 import Ranking from "./page/list/ranking";
 import Sorts from "./page/list/sorts";
 import Register from "./page/register";
+import ClassDetail from "./page/classdetail";
 import Boysbook from "./page/list/boy";
 import Girlsbook from "./page/list/girl";
 import Booklist from "./page/list/booklist"
@@ -27,6 +28,10 @@ class App extends Component {
                             <Route path="/register" component={Register} />
                             <Route path="/login" component={Login} />
                             <Route path="/detail" component={Detail} />
+                            <Route
+                                path="/classdetail"
+                                component={ClassDetail}
+                            />
                             <Route path="/" component={Home} />
                         </Switch>
                     </div>

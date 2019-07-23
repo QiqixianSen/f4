@@ -25,7 +25,7 @@ function post(url, data) {
             .post(url, params, {
                 // baseURL: api.HOST,
                 // headers: {
-                //     Cookie: document.cookie
+                //     "Content-Type": "application/x-www-form-urlencoded"
                 // }
             })
             .then(result => {
