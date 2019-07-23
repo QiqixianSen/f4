@@ -15,7 +15,6 @@ import Booklist from "./page/list/booklist";
 import Search from "./page/search";
 
 class App extends Component {
-<<<<<<< HEAD
   render() {
     return (
       <Provider store={store}>
@@ -31,6 +30,7 @@ class App extends Component {
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/detail" component={Detail} />
+              <Route path="/classdetail" component={ClassDetail} />
               <Route path="/" component={Home} />
             </Switch>
           </div>
@@ -38,32 +38,5 @@ class App extends Component {
       </Provider>
     );
   }
-=======
-    render() {
-        return (
-            <Provider store={store}>
-                <BrowserRouter>
-                    <div>
-                        <Switch>
-                            <Route path="/girl" component={Girlsbook} />
-                            <Route path="/boy" component={Boysbook} />
-                            <Route path="/booklist" component={Booklist} />
-                            <Route path="/ranking" component={Ranking} />
-                            <Route path="/sorts" component={Sorts} />
-                            <Route path="/register" component={Register} />
-                            <Route path="/login" component={Login} />
-                            <Route path="/detail" component={Detail} />
-                            <Route
-                                path="/classdetail"
-                                component={ClassDetail}
-                            />
-                            <Route path="/" component={Home} />
-                        </Switch>
-                    </div>
-                </BrowserRouter>
-            </Provider>
-        );
-    }
->>>>>>> 8f34cacc8cbc85714836018243995d421690b96f
 }
 export default App;
