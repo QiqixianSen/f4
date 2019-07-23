@@ -8,7 +8,6 @@ export default class index extends Component {
                 <NavBar
                     mode="light"
                     icon={<Icon type="left" size="lg" />}
-                    onLeftClick={() => console.log("onLeftClick")}
                     rightContent={[
                         <Icon
                             key="0"

@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import Home from "./page/home";
 import Detail from "./page/detail";
 import Login from "./page/login";
+import Ranking from "./page/list/ranking";
+import Sorts from "./page/list/sorts";
 
 class App extends Component {
     render() {
@@ -12,6 +14,8 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Switch>
+                        <Route path="/ranking" component={Ranking} />
+                        <Route path="/sorts" component={Sorts} />
                         <Route path="/login" component={Login} />
                         <Route path="/detail" component={Detail} />
                         <Route path="/" component={Home} />
