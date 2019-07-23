@@ -6,11 +6,6 @@
     "antd": "^3.20.5",
     "antd-mobile": "^2.2.14",
     "axios": "^0.19.0",
-<<<<<<< HEAD
-=======
-    "babel-plugin-import": "^1.12.0",
-    "customize-cra": "^0.4.1",
->>>>>>> 38318fe164371705b414f664f0ad190993823e7e
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -20,11 +15,7 @@
     "redux": "^4.0.4"
   },
   "scripts": {
-<<<<<<< HEAD
     "dev": "react-app-rewired start",
-=======
-    "start": "react-app-rewired start",
->>>>>>> 38318fe164371705b414f664f0ad190993823e7e
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"

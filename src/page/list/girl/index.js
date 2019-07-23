@@ -1,7 +1,20 @@
 import React, { Component } from "react";
-
-export default class index extends Component {
+import Girls from "../../home/components/Girls";
+import Bestsellers from "../../home/components/Bestsellers"
+import Footer from "../../../common/footer"
+import Hotlist from "./component/hoslist"
+class Girlsbook extends Component {
   render() {
-    return <div />;
+    return (
+      <div>
+        <Girls />
+        <Hotlist />
+        <Girls />
+        <Bestsellers />
+        <Footer />
+      </div>
+
+    )
   }
 }
+export default Girlsbook;
