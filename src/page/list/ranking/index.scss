@@ -1,0 +1,107 @@
+@import "../../../statics/style/px2rem.scss";
+@import "../../../statics/style/mixin.scss";
+
+.rank-list {
+    h2 {
+        line-height: px2rem(36);
+        background: #f8f8f8;
+        color: #999;
+        font-size: 12px;
+        padding-left: px2rem(15);
+    }
+
+    .list-item {
+        height: px2rem(66);
+        width: 100%;
+        @include border-bottom;
+        background: #fff;
+        padding: px2rem(14) px2rem(20);
+        box-sizing: border-box;
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: #333;
+            .img {
+                width: px2rem(36);
+                height: px2rem(36);
+                margin-right: px2rem(16);
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            .content {
+                height: 100%;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                h3 {
+                    font-size: 14px;
+                    font-weight: 100;
+                    margin: px2rem(4) 0;
+                    color: #333;
+                }
+                p {
+                    font-size: 12px;
+                    color: #999;
+                    span {
+                        padding-right: px2rem(6);
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+    .girl {
+        .list-item:nth-child(1) a .img {
+            background-position: 0 0;
+        }
+        .list-item:nth-child(2) a .img {
+            background-position: 0 px2rem(-48);
+        }
+        .list-item:nth-child(3) a .img {
+            background-position: 0 px2rem(-97);
+        }
+        .list-item:nth-child(4) a .img {
+            background-position: 0 px2rem(-146);
+        }
+    }
+    .boy {
+        .list-item:nth-child(1) a .img {
+            background-position: 0 px2rem(-194);
+        }
+        .list-item:nth-child(2) a .img {
+            background-position: 0 px2rem(-244);
+        }
+        .list-item:nth-child(3) a .img {
+            background-position: 0 px2rem(-292);
+        }
+        .list-item:nth-child(4) a .img {
+            background-position: 0 px2rem(-340);
+        }
+        .list-item:nth-child(5) a .img {
+            background-position: 0 px2rem(-389);
+        }
+        .list-item:nth-child(6) a .img {
+            background-position: 0 px2rem(-437);
+        }
+        .list-item:nth-child(7) a .img {
+            background-position: 0 px2rem(-486);
+        }
+        .list-item:nth-child(8) a .img {
+            background-position: 0 px2rem(-535);
+        }
+        .list-item:nth-child(9) a .img {
+            background-position: 0 px2rem(-583);
+        }
+        .list-item:nth-child(10) a .img {
+            background-position: 0 px2rem(-632);
+        }
+        .list-item:nth-child(11) a .img {
+            background-position: 0 px2rem(-680);
+        }
+    }
+}

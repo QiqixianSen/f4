@@ -1,55 +1,57 @@
 @import "../../../statics/style/px2rem.scss";
-.list-item {
-    height: px2rem(92);
-    width: 100%;
-    margin-bottom: px2rem(8);
-    background: #fff;
-    padding: px2rem(21) px2rem(20);
-    box-sizing: border-box;
-    a {
-        display: block;
+.sorts-list {
+    .list-item {
+        height: px2rem(92);
         width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        color: #333;
-        .img {
-            width: px2rem(30);
-            height: px2rem(30);
-            margin-right: px2rem(16);
-            background-size: px2rem(232);
-            background-repeat: no-repeat;
-        }
-        .content {
+        margin-bottom: px2rem(8);
+        background: #fff;
+        padding: px2rem(21) px2rem(20);
+        box-sizing: border-box;
+        a {
+            display: block;
+            width: 100%;
             height: 100%;
-            box-sizing: border-box;
-            padding: px2rem(6) 0;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            h3 {
-                font-size: 14px;
-                font-weight: 100;
+            justify-content: flex-start;
+            align-items: center;
+            color: #333;
+            .img {
+                width: px2rem(30);
+                height: px2rem(30);
+                margin-right: px2rem(16);
+                background-size: px2rem(232);
+                background-repeat: no-repeat;
             }
-            p {
-                font-size: 12px;
+            .content {
+                height: 100%;
+                box-sizing: border-box;
+                padding: px2rem(6) 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                h3 {
+                    font-size: 14px;
+                    font-weight: 100;
+                }
+                p {
+                    font-size: 12px;
+                }
             }
         }
     }
-}
-.list-item:nth-child(1) a .img {
-    background-position: 0 0;
-}
-.list-item:nth-child(2) a .img {
-    background-position: px2rem(-34) 0;
-}
-.list-item:nth-child(3) a .img {
-    background-position: px2rem(-66) 0;
-}
-.list-item:nth-child(4) a .img {
-    background-position: px2rem(-100) 0;
-}
-.list-item:nth-child(5) a .img {
-    background-position: px2rem(-133) 0;
+    .list-item:nth-child(1) a .img {
+        background-position: 0 0;
+    }
+    .list-item:nth-child(2) a .img {
+        background-position: px2rem(-34) 0;
+    }
+    .list-item:nth-child(3) a .img {
+        background-position: px2rem(-66) 0;
+    }
+    .list-item:nth-child(4) a .img {
+        background-position: px2rem(-100) 0;
+    }
+    .list-item:nth-child(5) a .img {
+        background-position: px2rem(-133) 0;
+    }
 }
