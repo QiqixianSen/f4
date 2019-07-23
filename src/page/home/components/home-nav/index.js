@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./index.scss";
-import bg from "../../../../statics/images/nav.png";
 
 class index extends Component {
     render() {
@@ -9,34 +9,34 @@ class index extends Component {
                 <div className="home-nav">
                     <ul>
                         <li>
-                            <a href="">
+                            <Link to="/ranking">
                                 <i />
                                 <p>分类</p>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="">
+                            <Link to="/sorts">
                                 <i />
                                 <p>排行</p>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="">
+                            <Link to="/girl">
                                 <i />
                                 <p>女频</p>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="">
+                            <Link to="/boy">
                                 <i />
                                 <p>男频</p>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="">
+                            <Link to="/booklist">
                                 <i />
                                 <p>书单</p>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
