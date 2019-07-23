@@ -16,6 +16,13 @@ function randomColor() {
   return rgb;
 }
 export default class Register extends Component {
+  state = {
+    phone: "",
+    password: "",
+    arr: [],
+    bgc: "",
+    checked: ""
+  };
   rannum = function(num) {
     let arr = [];
     for (let i = 0; i < num; i++) {
@@ -26,14 +33,11 @@ export default class Register extends Component {
   };
   setarr = () => {
     this.setState({
-      arr: this.rannum(4)
+      arr: this.rannum(4),
+      bgc: randomColor()
     });
   };
   render() {
-    this.state = {
-      arr: [],
-      bgc: ""
-    };
     return (
       <div>
         <NavBar {...this.props}>注册</NavBar>
@@ -41,6 +45,12 @@ export default class Register extends Component {
         <List className="reg-list">
           <InputItem
             type="phone"
+            value={this.state.phone}
+            onChange={value => {
+              this.setState({
+                phone: value
+              });
+            }}
             // {...getFieldProps('autofocus')}
 
             placeholder="请输入手机号"
@@ -48,9 +58,18 @@ export default class Register extends Component {
           >
             手机号
           </InputItem>
-          <InputItem type="phone" clear placeholder="">
+          <InputItem
+            clear
+            placeholder=""
+            value={this.state.password}
+            onChange={value => {
+              this.setState({
+                password: value
+              });
+            }}
+          >
             校验码
-            <span className="checka">
+            <span className="checka" style={{ background: this.state.bgc }}>
               {this.rannum(4).map((item, index) => {
                 return (
                   <span
@@ -80,12 +99,34 @@ export default class Register extends Component {
           </InputItem>
 
           <div className="agess">
-            <input type="radio" />
+            <input
+              type="radio"
+              checked={this.state.checked}
+              onClick={() => {
+                this.setState({
+                  checked: this.state.checked === "" ? "checked" : ""
+                });
+              }}
+              onChange={() => {}}
+            />
             &emsp;同意<span>《阿里文学用户协议》</span>和
             <span>《隐私服务协议》</span>
           </div>
           <div className="btn">
-            <Button type="primary" disabled>
+            <Button
+              type="primary"
+              disabled={(() => {
+                if (
+                  this.state.checked !== "" &&
+                  this.state.phone !== "" &&
+                  this.state.password !== ""
+                ) {
+                  return false;
+                } else {
+                  return true;
+                }
+              })()}
+            >
               获取验证码
             </Button>
           </div>
