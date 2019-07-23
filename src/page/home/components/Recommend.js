@@ -1,10 +1,48 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {Toast} from 'antd-mobile'
 
 import "../style.scss";
 import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
 
 class Recommend extends Component {
+  constructor(){
+    super()
+    this.state = {
+      page: 1
+    };
+    this.changePage=this.changePage.bind(this)
+  }
+  getListArea() {
+    const { remList } = this.props;
+    const list = [];
+    if (remList.length) {
+      for (let i = 0; i < this.state.page * 5; i++) {
+        list.push(
+          <div className="new-one" key={remList[i].bid}>
+            <div className="new-left">
+              <img src={remList[i].book_cover} alt="" />
+            </div>
+            <div className="new-right">
+              <h4 className="new-title">{remList[i].bookname}</h4>
+              <span className="new-author">{remList[i].author_name}</span>
+              <p className="book-item-desc new-desc">{remList[i].book_info}</p>
+              <div className="book-item-tag new-tags">
+                <span className="tag-spe">{remList[i].stat_name}</span>
+                <span>
+                  {Math.ceil(parseInt(remList[i].recommend_num) / 10000)}万
+                </span>
+                {remList[i].tag.slice(0, 2).map((tag, index) => {
+                  return <span key={index}>{tag}</span>;
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+    return <div>{list}</div>;
+  }
   render() {
     return (
       <div>
@@ -12,36 +50,28 @@ class Recommend extends Component {
           <i className="iconfont icon-AirPollution rem" />
           <h3 className="home-title">根据你的爱好推荐</h3>
         </div>
-        {this.props.remList.map(item => {
-          return (
-            <div className="new-one" key={item.bid}>
-              <div className="new-left">
-                <img src={item.book_cover} alt="" />
-              </div>
-              <div className="new-right">
-                <h4 className="new-title">{item.bookname}</h4>
-                <span className="new-author">{item.author_name}</span>
-                <p className="book-item-desc new-desc">{item.book_info}</p>
-                <div className="book-item-tag new-tags">
-                  <span className="tag-spe">{item.stat_name}</span>
-                  <span>
-                    {Math.ceil(parseInt(item.recommend_num) / 10000)}万
-                  </span>
-                  {item.tag.slice(0, 2).map((tag, index) => {
-                    return <span key={index}>{tag}</span>;
-                  })}
-                </div>
-              </div>
-              
-            </div>
-          );
-        })}
-        <div className="home-change">
-                <span>加载更多</span>
-              </div>
+        {this.getListArea()}
+        <div className="home-change" onClick={this.changePage}>
+          <span>加载更多</span>
+        </div>
       </div>
     );
   }
+  changePage(){
+    //存在bug！！！！！
+    if(this.state.page<(this.props.remList.length)/5){
+      this.setState({
+        page:this.state.page+1
+      })
+    }else{
+        Toast.info('已经全部加载完啦', 1);
+      
+      return false
+    }
+    
+   
+  }
+  
 }
 const mapState = state => ({
   remList: state.home.remList

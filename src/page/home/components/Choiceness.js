@@ -21,7 +21,7 @@ class Choiceness extends Component {
                     {item.sdesc}
                   </p>
                   <div className="book-item-tag new-tags">
-                  {(item.tags).split(',').map((item,index)=>{
+                  {(item.tags).split(',').slice(0,4).map((item,index)=>{
                     return (
                       <span className="tag-spe" key={index}>{item}</span>
                     ) 
