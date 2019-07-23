@@ -8,24 +8,29 @@ import Login from "./page/login";
 import Ranking from "./page/list/ranking";
 import Sorts from "./page/list/sorts";
 import Register from "./page/register";
+import ClassDetail from "./page/classdetail";
 
 class App extends Component {
     render() {
         return (
-          <Provider store={store}>
-            <BrowserRouter>
-                <div>
-                    <Switch>
-                        <Route path="/ranking" component={Ranking} />
-                        <Route path="/sorts" component={Sorts} />
-                        <Route path="/register" component={Register} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/detail" component={Detail} />
-                        <Route path="/" component={Home} />
-                    </Switch>
-                </div>
-            </BrowserRouter>
-          </Provider>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div>
+                        <Switch>
+                            <Route path="/ranking" component={Ranking} />
+                            <Route path="/sorts" component={Sorts} />
+                            <Route path="/register" component={Register} />
+                            <Route path="/login" component={Login} />
+                            <Route path="/detail" component={Detail} />
+                            <Route
+                                path="/classdetail"
+                                component={ClassDetail}
+                            />
+                            <Route path="/" component={Home} />
+                        </Switch>
+                    </div>
+                </BrowserRouter>
+            </Provider>
         );
     }
 }
