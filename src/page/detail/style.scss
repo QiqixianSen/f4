@@ -1,8 +1,7 @@
 @import "../../../src/statics/style/px2rem.scss";
 @import "../../../src/statics/style/mixin.scss";
-.book-detail{
-    margin-top: px2rem(45)
-}
+
+
 .book-info{
     display: flex;
     height: px2rem(130);
@@ -45,8 +44,115 @@
     display: flex;
     padding: 0 px2rem(16);
     justify-content: space-around;
+    margin-top: px2rem(5);
     .am-button{
         padding: 0 px2rem(20);
+            font-size: 14px;
+            height: px2rem(42);
+            line-height: px2rem(42)
+            
+    
         
     }
+}
+
+
+.commit-detail{
+    ul{
+        padding: 0 px2rem(16);
+        @include border-top;
+        li{
+            padding: px2rem(20) 0;
+            @include border-bottom;
+        }
+    }
+    
+}
+.commit-header{
+    height: px2rem(24);
+    position: relative;
+    img{
+        height: px2rem(24);
+        width: px2rem(24);
+        border-radius: 50%
+
+    }
+    span{
+        line-height: px2rem(20);
+        height:  px2rem(20);
+        color: #999;
+        vertical-align: middle;
+        position: absolute;
+        font-size: 12px;
+        top: px2rem(2);
+        left: px2rem(35);
+    }
+}
+.commit-p{
+    padding: px2rem(4) px2rem(16) px2rem(8) px2rem(34);
+    p{
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 14px;
+    color: #333;
+    position: relative;
+    line-height: px2rem(22);
+    word-break: break-word;
+    }
+}
+.spe-ul{
+    flex-wrap: wrap;
+    
+    li{
+        width: px2rem(70);
+        padding:0 px2rem(16) px2rem(10) 0;
+    }
+    .book-name{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        display: block;
+        font-size: 12px;
+        line-height:px2rem(16);
+        height: px2rem(16);
+        text-align: left;
+    }
+    .book-author{
+        font-size: 12px;
+    }
+}
+
+.am-accordion-header{
+    // padding-left: px2rem(29) !important;
+    font-size: 14px !important;
+}
+.home{
+    .info{
+        position: relative;
+    }
+    .home-icon{
+        position: absolute;
+        top:px2rem(15);
+        left: px2rem(9);
+        z-index: 10;
+    }
+}
+.pad{
+    border: none;
+    div{
+        overflow: hidden;
+        margin: 0 px2rem(16);
+        padding: px2rem(3) 0;
+        font-size: 14px;
+        color: #999;
+        line-height: px2rem(22);
+       
+    }
+}
+.detail-color{
+    background: #fff;
 }

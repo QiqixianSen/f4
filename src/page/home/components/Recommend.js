@@ -10,7 +10,7 @@ class Recommend extends Component{
             <i className='iconfont icon-AirPollution rem'></i>
             <h3 className='home-title'>根据你的爱好推荐</h3>
         </div>
-        <div className= 'new-one'>
+        <div className= 'new-one new-spe'>
               <div className='new-left'>
                 <img src="http://img-tailor.11222.cn/bcv/big/1147397894049.jpg" alt=""/>
              
@@ -41,7 +41,7 @@ class Recommend extends Component{
             <div className= 'new-one'>
               <div className='new-left'>
                 <img src="http://img-tailor.11222.cn/bcv/big/1147397894049.jpg" alt=""/>
-                <span className='new-num'>1</span>
+               
               </div>
               
               <div className='new-right'>
@@ -55,7 +55,7 @@ class Recommend extends Component{
             <div className= 'new-one'>
               <div className='new-left'>
                 <img src="http://img-tailor.11222.cn/bcv/big/1147397894049.jpg" alt=""/>
-                <span className='new-num'>1</span>
+               
               </div>
               
               <div className='new-right'>
