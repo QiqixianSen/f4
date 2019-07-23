@@ -10,29 +10,31 @@ import Sorts from "./page/list/sorts";
 import Register from "./page/register";
 import Boysbook from "./page/list/boy";
 import Girlsbook from "./page/list/girl";
-import Booklist from "./page/list/booklist"
+import Booklist from "./page/list/booklist";
+import Search from "./page/search";
 
 class App extends Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <BrowserRouter>
-                    <div>
-                        <Switch>
-                            <Route path="/girl" component={Girlsbook} />
-                            <Route path="/boy" component={Boysbook} />
-                            <Route path="/booklist" component={Booklist} />
-                            <Route path="/ranking" component={Ranking} />
-                            <Route path="/sorts" component={Sorts} />
-                            <Route path="/register" component={Register} />
-                            <Route path="/login" component={Login} />
-                            <Route path="/detail" component={Detail} />
-                            <Route path="/" component={Home} />
-                        </Switch>
-                    </div>
-                </BrowserRouter>
-            </Provider>
-        );
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Switch>
+              <Route path="/search" component={Search} />
+              <Route path="/girl" component={Girlsbook} />
+              <Route path="/boy" component={Boysbook} />
+              <Route path="/booklist" component={Booklist} />
+              <Route path="/ranking" component={Ranking} />
+              <Route path="/sorts" component={Sorts} />
+              <Route path="/register" component={Register} />
+              <Route path="/login" component={Login} />
+              <Route path="/detail" component={Detail} />
+              <Route path="/" component={Home} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
 }
 export default App;
