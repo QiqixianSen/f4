@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import * as actionCreators from './store/actionCreators'
 import Header from "./components/home-header";
 import HomeNav from "./components/home-nav";
 import Giftware from "./components/Giftware";
@@ -28,6 +30,15 @@ class Home extends Component {
             </div>
         );
     }
+    componentDidMount(){
+        this.props.getRem()
+    }
 }
 
-export default Home;
+const mapDispatch=(dispatch)=>({
+    getRem(){
+        dispatch(actionCreators.getRemList())
+      }
+})
+
+export default connect(null,mapDispatch)(Home);

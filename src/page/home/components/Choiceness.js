@@ -1,51 +1,54 @@
-import React,{Component} from 'react';
-import '../style.scss';
-import '../../../statics/font_1307227_9qrecju4ty/iconfont.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "../style.scss";
+import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
 
-class Choiceness extends Component{
-  render(){
+class Choiceness extends Component {
+  render() {
     return (
       <div>
-        <div className='title-header'>
-          <i className='iconfont icon-AffordableCredit choiceness'></i>
-          <h3 className='home-title'>精华之作</h3>
+        <div className="title-header">
+          <i className="iconfont icon-AffordableCredit choiceness" />
+          <h3 className="home-title">精华之作</h3>
         </div>
         <ul>
-          <li className="choice-li">
-            <div className='choice-left'>
-                <h4 className='new-title'>绝世神dddddddddddddddd</h4>
-                <p className='book-item-desc new-desc'>废物，家族凤梅很大很</p>
-                <div className='book-item-tag new-tags'><span className='tag-spe'>连载</span><span>连载费合计很烦</span></div>
-            </div>
-            <img src='http://oss-asq-img.11222.cn/bcv/middle/201807171256347242.jpg' alt='' />
-          </li>
-          <li className="choice-li">
-            <div className='choice-left'>
-                <h4 className='new-title'>绝世神dddddddddddddddd</h4>
-                <p className='book-item-desc new-desc'>废物，家族凤梅很大很</p>
-                <div className='book-item-tag new-tags'><span className='tag-spe'>连载</span><span>连载费合计很烦</span></div>
-            </div>
-            <img src='http://oss-asq-img.11222.cn/bcv/middle/201807171256347242.jpg' alt='' />
-          </li>
-          <li className="choice-li">
-            <div className='choice-left'>
-                <h4 className='new-title'>绝世神dddddddddddddddd</h4>
-                <p className='book-item-desc new-desc'>废物，家族凤梅很大很</p>
-                <div className='book-item-tag new-tags'><span className='tag-spe'>连载</span><span>连载费合计很烦</span></div>
-            </div>
-            <img src='http://oss-asq-img.11222.cn/bcv/middle/201807171256347242.jpg' alt='' />
-          </li>
+          {this.props.list.map(item => {
+            return (
+              <li className="choice-li" key={item.id}>
+                <div className="choice-left">
+                  <h4 className="new-title">{item.title}</h4>
+                  <p className="book-item-desc new-desc">
+                    {item.sdesc}
+                  </p>
+                  <div className="book-item-tag new-tags">
+                  {(item.tags).split(',').map((item,index)=>{
+                    return (
+                      <span className="tag-spe" key={index}>{item}</span>
+                    ) 
+                  })}
+                  </div>
+                </div>
+                <img
+                  src={item.items[0].cover}
+                  alt=""
+                />
+              </li>
+            );
+          })}
         </ul>
-        <div className='home-change'>
-            <span>查看更多</span>
-          </div>
-          <div className='white-space'></div>
-        
+        <div className="home-change">
+          <span>查看更多</span>
+        </div>
+        <div className="white-space" />
       </div>
-        
-    
-    )
-}
+    );
   }
-  
-  export default Choiceness
+}
+const mapState = state => ({
+  list: state.home.choiceList
+});
+
+export default connect(
+  mapState,
+  null
+)(Choiceness);
