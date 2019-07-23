@@ -1,0 +1,101 @@
+@import "../../../../statics/style/px2rem.scss";
+@import "../../../../statics/style/mixin.scss";
+.hotlist {
+  width: 100%;
+}
+
+.title-header {
+  background: #fff;
+  width: 100%;
+  padding: px2rem(16) 0 0 px2rem(8);
+  box-sizing: border-box;
+}
+.home-title {
+  padding-left: px2rem(8);
+  color: #333;
+  display: inline-block;
+  height: px2rem(16);
+  line-height: px2rem(16);
+  font-size: px2rem(14);
+  position: relative;
+}
+
+.swiper-main {
+  width: 100%;
+  height: px2rem(226);
+  background: #fff;
+ 
+
+  .classTypes{
+  width: px2rem(342);
+  height: px2rem(12);
+  padding:px2rem(16) px2rem(16) 0;
+  text-align: center;
+  p{
+   width: 100%;
+   height: px2rem(12);
+   font-size: px2rem(12);
+   color:#00c98d;
+   text-align: center;
+   &::before{
+    text-decoration: line-through;
+    color:#999;
+   }
+  }
+  }
+  .page1{
+    width: 100%;
+    height: px2rem(172);
+    padding: px2rem(16) 0 px2rem(16) px2rem(16);
+    display: flex;
+    justify-content: flex-start;
+    .pagelist{
+      width: px2rem(74);
+      height: px2rem(140);
+      padding-right: px2rem(16);
+      display: inline-block;
+    }
+      .book-img {
+        width: px2rem(74);
+        height: px2rem(98);
+      }
+      img {
+        width: px2rem(74);
+        height: px2rem(98);
+      }
+      .book-title {
+        width: px2rem(74);
+        height: px2rem(16);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: px2rem(16);
+        margin: px2rem(8) 0 px2rem(2);
+        font-size: px2rem(12);
+        color: #333;
+        
+      }
+      .book-writer {
+       width: px2rem(74);
+        height: px2rem(16);
+        line-height: px2rem(16);
+        font-size: px2rem(12);
+        color: #999;
+      }
+  }
+}
+.delay-more {
+  @include border-top;
+  width: 100%;
+  height: px2rem(48);
+  background: #fff;
+  line-height: px2rem(48);
+  text-align: center;
+  font-size: px2rem(14);
+  color: #333;
+}
+.split-line {
+  width: 100%;
+  height: px2rem(8);
+  background: #f0f0f2;
+}
