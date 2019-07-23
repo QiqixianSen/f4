@@ -19,7 +19,7 @@ class Home extends Component {
                 <Header />
                 <HomeNav />
                 <Giftware />
-                <Girls />
+                <Girls getGirls={this.props.getGirls} />
                 <Boys />
                 <NewBooks />
                 <Bestsellers />
@@ -32,13 +32,22 @@ class Home extends Component {
     }
     componentDidMount(){
         this.props.getRem()
+        this.props.getBest()
+        this.props.getGirls()
     }
 }
 
 const mapDispatch=(dispatch)=>({
     getRem(){
         dispatch(actionCreators.getRemList())
+      },
+      getBest(){
+        dispatch(actionCreators.getBestList())
+      },
+      getGirls(){
+        dispatch(actionCreators.getGirlsList())
       }
+
 })
 
 export default connect(null,mapDispatch)(Home);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Tabs, Badge, List, InputItem, Button, Toast } from "antd-mobile";
 import "./index.scss";
 import NavBar from "../../common/header";
+import axios from "axios";
 
 const tabs = [
   { title: <Badge>账户密码</Badge> },
@@ -28,6 +29,21 @@ export default class Login extends Component {
     jiaoyan: "",
     phonechecked: ""
   };
+  // 登录按钮点击事件
+  loginSin = () => {
+    let obj = {
+      username: this.state.usevalue,
+      password: this.state.pwd
+    };
+    axios.post("http://localhost:9090/sign-in", obj).then(response => {
+      let res = response.data;
+      if (res.code === 0) {
+        Toast.success("登陆成功", 1);
+        this.props.history.push("/");
+      }
+    });
+  };
+
   onErrorClick = () => {
     if (this.state.hasError) {
       Toast.info("请输入 11 位的手机号码");
@@ -62,6 +78,12 @@ export default class Login extends Component {
       arr: this.rannum(4),
       bgc: randomColor()
     });
+  };
+
+  // 跳转到注册
+  register = () => {
+    this.props.history.push("/register");
+    // console.log(this.props);
   };
   render() {
     return (
@@ -144,6 +166,7 @@ export default class Login extends Component {
                   </div>
                   <div className="btn">
                     <Button
+                      onClick={this.loginSin}
                       type="primary"
                       disabled={(() => {
                         console.log(
@@ -168,7 +191,9 @@ export default class Login extends Component {
                 </List>
                 <div className="toreg">
                   <span className="toreg-one">忘记密码</span>
-                  <span className="toreg-two">注册</span>
+                  <span className="toreg-two" onClick={this.register}>
+                    注册
+                  </span>
                 </div>
               </div>
               {/* 登录表单结束 */}
@@ -289,7 +314,9 @@ export default class Login extends Component {
                 </List>
                 <div className="toreg">
                   <span className="toreg-one">忘记密码</span>
-                  <span className="toreg-two">注册</span>
+                  <span className="toreg-two" onClick={this.register}>
+                    注册
+                  </span>
                 </div>
               </div>
               {/* 登录表单结束 */}

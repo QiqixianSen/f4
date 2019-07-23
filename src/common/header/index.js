@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavBar, Icon } from "antd-mobile";
 
 
-export default class index extends Component {
+export default class Index extends Component {
   render() {
     return (
       <div>

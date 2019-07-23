@@ -1,40 +1,64 @@
 import React, { Component } from "react";
-import { Tabs, Badge, List, InputItem, Button } from "antd-mobile";
+import { Tabs, Badge, List, InputItem, Button, Toast } from "antd-mobile";
 import NavBar from "../../common/header";
 import "./index.scss";
+import axios from "axios";
 
 const tabs = [
   { title: <Badge>账户密码</Badge> },
   { title: <Badge>手机验证登码</Badge> }
 ];
 
-function randomColor() {
+const randomColor = function() {
   var r = parseInt(Math.random() * 256);
   var g = parseInt(Math.random() * 256);
   var b = parseInt(Math.random() * 256);
   var rgb = "rgb(" + r + "," + g + "," + b + ")";
   return rgb;
-}
+};
+const rannum = function(num) {
+  let arr = [];
+  for (let i = 0; i < num; i++) {
+    let t = Math.floor(Math.random() * 10);
+    arr.push(t);
+  }
+  return arr;
+};
+const getdeg = function() {
+  return "rotate(" + Math.round(Math.random() * 360) + "deg)";
+};
 export default class Register extends Component {
   state = {
     phone: "",
     password: "",
-    arr: [],
-    bgc: "",
-    checked: ""
+    arr: rannum(4),
+    bgc: randomColor(),
+    checked: "",
+    reg: getdeg()
   };
-  rannum = function(num) {
-    let arr = [];
-    for (let i = 0; i < num; i++) {
-      let t = Math.floor(Math.random() * 10);
-      arr.push(t);
-    }
-    return arr;
-  };
+
   setarr = () => {
+    console.log(this.state.arr);
     this.setState({
-      arr: this.rannum(4),
-      bgc: randomColor()
+      arr: rannum(4),
+      bgc: randomColor(),
+      reg: getdeg()
+    });
+  };
+  signIn = () => {
+    let obj = {
+      username: this.state.phone,
+      password: this.state.password
+    };
+    console.log(obj);
+    axios.post("http://localhost:9090/sign-up", obj).then(response => {
+      let res = response.data;
+      console.log(res);
+      if (res.code === 0) {
+        Toast.info("注册成功", 1);
+      } else {
+        Toast.info("该用户已被注册", 1);
+      }
     });
   };
   render() {
@@ -47,14 +71,12 @@ export default class Register extends Component {
             type="phone"
             value={this.state.phone}
             onChange={value => {
+              console.log(this.state.arr);
               this.setState({
                 phone: value
               });
             }}
-            // {...getFieldProps('autofocus')}
-
             placeholder="请输入手机号"
-            // ref={el => (this.autoFocusInst = el)}
           >
             手机号
           </InputItem>
@@ -70,14 +92,13 @@ export default class Register extends Component {
           >
             校验码
             <span className="checka" style={{ background: this.state.bgc }}>
-              {this.rannum(4).map((item, index) => {
+              {this.state.arr.map((item, index) => {
                 return (
                   <span
                     key={index}
                     style={{
                       color: randomColor(),
-                      transform:
-                        "rotate(" + Math.round(Math.random() * 360) + "deg)",
+                      transform: getdeg(),
                       display: "inlineBlock"
                     }}
                     className="radnum"
@@ -115,6 +136,7 @@ export default class Register extends Component {
           <div className="btn">
             <Button
               type="primary"
+              onClick={this.signIn}
               disabled={(() => {
                 if (
                   this.state.checked !== "" &&
