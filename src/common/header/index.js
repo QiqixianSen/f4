@@ -19,14 +19,11 @@ export default class Index extends Component {
           }
           onLeftClick={() => console.log("onLeftClick")}
           rightContent={[
-            <Icon
-              key="0"
-              type="cross-circle"
-              style={{ marginRight: "16px" }}
+            <i className='iconfont icon-home-g' style={{fontSize:'26px'}}
               onClick={() => {
                 this.props.history.push("/home");
               }}
-            />
+            ></i>
           ]}
         >
           {this.props.children}

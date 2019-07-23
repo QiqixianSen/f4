@@ -1,76 +1,53 @@
-import React,{Component} from 'react';
-import '../style.scss';
-import '../../../statics/font_1307227_9qrecju4ty/iconfont.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-class Recommend extends Component{
-  render(){
+import "../style.scss";
+import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
+
+class Recommend extends Component {
+  render() {
     return (
       <div>
-        <div className='title-header'>
-            <i className='iconfont icon-AirPollution rem'></i>
-            <h3 className='home-title'>根据你的爱好推荐</h3>
+        <div className="title-header">
+          <i className="iconfont icon-AirPollution rem" />
+          <h3 className="home-title">根据你的爱好推荐</h3>
         </div>
-        <div className= 'new-one new-spe'>
-              <div className='new-left'>
-                <img src="http://img-tailor.11222.cn/bcv/big/1147397894049.jpg" alt=""/>
-             
+        {this.props.remList.map(item => {
+          return (
+            <div className="new-one" key={item.bid}>
+              <div className="new-left">
+                <img src={item.book_cover} alt="" />
+              </div>
+              <div className="new-right">
+                <h4 className="new-title">{item.bookname}</h4>
+                <span className="new-author">{item.author_name}</span>
+                <p className="book-item-desc new-desc">{item.book_info}</p>
+                <div className="book-item-tag new-tags">
+                  <span className="tag-spe">{item.stat_name}</span>
+                  <span>
+                    {Math.ceil(parseInt(item.recommend_num) / 10000)}万
+                  </span>
+                  {item.tag.slice(0, 2).map((tag, index) => {
+                    return <span key={index}>{tag}</span>;
+                  })}
+                </div>
               </div>
               
-              <div className='new-right'>
-                <h4 className='new-title'>绝世神皇</h4>
-                <span className='new-author'>自逍客</span>
-                <p className='book-item-desc new-desc'>废物出身，家族凤梅很大很</p>
-                <div className='book-item-tag new-tags'><span className='tag-spe'>连载</span><span>160万</span><span className='tag-red'>连载</span><span>连载</span></div>
-              </div>
-
             </div>
-            <div className= 'new-one'>
-              <div className='new-left'>
-                <img src="http://img-tailor.11222.cn/bcv/big/1147397894049.jpg" alt=""/>
-              
+          );
+        })}
+        <div className="home-change">
+                <span>加载更多</span>
               </div>
-              
-              <div className='new-right'>
-                <h4 className='new-title'>绝世神皇</h4>
-                <span className='new-author'>自逍客</span>
-                <p className='book-item-desc new-desc'>废物出身，家族凤梅很大很</p>
-                <div className='book-item-tag new-tags'><span className='tag-spe'>连载</span><span>160万</span><span className='tag-red'>连载</span><span>连载</span></div>
-              </div>
-
-            </div>
-            <div className= 'new-one'>
-              <div className='new-left'>
-                <img src="http://img-tailor.11222.cn/bcv/big/1147397894049.jpg" alt=""/>
-               
-              </div>
-              
-              <div className='new-right'>
-                <h4 className='new-title'>绝世神皇</h4>
-                <span className='new-author'>自逍客</span>
-                <p className='book-item-desc new-desc'>废物出身，家族凤梅很大很</p>
-                <div className='book-item-tag new-tags'><span className='tag-spe'>连载</span><span>160万</span><span className='tag-red'>连载</span><span>连载</span></div>
-              </div>
-
-            </div>
-            <div className= 'new-one'>
-              <div className='new-left'>
-                <img src="http://img-tailor.11222.cn/bcv/big/1147397894049.jpg" alt=""/>
-               
-              </div>
-              
-              <div className='new-right'>
-                <h4 className='new-title'>绝世神皇</h4>
-                <span className='new-author'>自逍客</span>
-                <p className='book-item-desc new-desc'>废物出身，家族凤梅很大很</p>
-                <div className='book-item-tag new-tags'><span className='tag-spe'>连载</span><span>160万</span><span className='tag-red'>连载</span><span>连载</span></div>
-              </div>
-
-            </div>
       </div>
-        
-    
-    )
-}
+    );
   }
-  
-  export default Recommend
+}
+const mapState = state => ({
+  remList: state.home.remList
+});
+
+export default connect(
+  mapState,
+  null
+)(Recommend);

@@ -13,10 +13,10 @@ export default class index extends Component {
     render() {
         return (
             <div className="sorts">
-                <Header>排行</Header>
+                <Header {...this.props}>排行</Header>
                 <ul className="sorts-list">
                     {this.state.list.map((item, index) => {
-                        return <Item list={item} index={index} />;
+                        return <Item list={item} index={index} key={index} />;
                     })}
                 </ul>
                 <Footer />
@@ -24,7 +24,6 @@ export default class index extends Component {
         );
     }
     componentDidMount() {
-        console.log(11);
         ajax.get(api.SORTS_API, {
             appId: 1,
             pageId: 4,
@@ -41,7 +40,6 @@ export default class index extends Component {
             key: "shuqiapi",
             _: 1563798299992
         }).then(res => {
-            console.log(res.data);
             let data = res.data.data.module.filter(item => {
                 return item.func_id === "23";
             });
