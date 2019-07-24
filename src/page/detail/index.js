@@ -1,12 +1,21 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import axios from 'axios'
 import Book from './components/Book'
+import * as actionCreators from './store/actionCreators'
 import Comment from './components/Comment'
 import Others from './components/Others'
 import { Accordion} from 'antd-mobile';
 import Footer from '../../common/footer'
 import Header from '../../common/header'
 class Detail extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+            id:this.props.match.params.id
+        }
+    }
+    
     render(){
       return (
         <div className='home'>
@@ -29,10 +38,27 @@ class Detail extends Component{
       )
   }
   componentDidMount(){
-      axios.get('http://bookstoreapi.shuqireader.com/eva_bookstore/v1/module/query?appId=1&pageId=1&channelId=&versionId=&ver=&shuqi_h5=&md5key=&userId=8000000&timestamp=1563766945&type=2&resetcache=&func_id=12%2C33%2C11%2C28%2C33%2C12%2C33%2C11%2C19&orderid=31%2C32%2C33%2C34%2C35%2C36%2C37%2C38%2C39&sign=5F4FE9EC1F819E233F118669E05BF951&key=shuqiapi&_=1563766945700').then(res=>{
-          console.log(res)
-      })
-  }
+    this.props.getBookInfo()
+    this.props.getCommentInfo()
+    this.props.getOtherInfo()
   }
   
-  export default Detail
+  }
+
+const mapDispatch=(dispatch,props)=>({
+    getCommentInfo(){
+        console.log(props)
+        dispatch(actionCreators.getBooks(props.match.params.id))
+    },
+    getBookInfo(){
+        console.log(props)
+        dispatch(actionCreators.getBooksDetail(props.match.params.id))
+    },
+    getOtherInfo(){
+        console.log(props)
+        dispatch(actionCreators.getOtherDetail())
+    }
+
+})
+  
+  export default connect(null,mapDispatch)(Detail) 

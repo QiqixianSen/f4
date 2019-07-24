@@ -1,9 +1,10 @@
-import React,{Component} from "react"
+import React, { Component } from "react"
+import {connect} from "react-redux"
 import "./index.scss";
+import { toUnicode } from "punycode";
 
 
-export default class Side1 extends Component{
- render() {
+const Side1= props => {  
   return(
    <div>
        <div className="classTypes">
@@ -44,5 +45,14 @@ export default class Side1 extends Component{
        </ul>
       </div>
   )
- }
 }
+
+export default connect(
+    state => {
+        console.log(state);
+        return {
+            state:state,   
+        }
+    },
+    null
+)(Side1)

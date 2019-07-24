@@ -31,7 +31,7 @@ class App extends Component {
               <Route path="/sorts" component={Sorts} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
-              <Route path="/detail" component={Detail} />
+              <Route path="/detail/:id" component={Detail} />
               <Route path="/classdetail" component={ClassDetail} />
               <Route path="/" component={Home} />
             </Switch>

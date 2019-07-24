@@ -17,9 +17,26 @@ class ClassDetail extends Component {
                 <div className="classfication">
                     <div className="all">
                         <ul>
-                            <li>全部</li>
+                            <li
+                                onClick={() => {
+                                    this.getSortsItem(
+                                        this.state.classfication[0].secondCate
+                                    );
+                                }}
+                            >
+                                全部
+                            </li>
                             {this.state.classfication.map(item => {
-                                return <li key={item.id}>{item.name}</li>;
+                                return (
+                                    <li
+                                        key={item.id}
+                                        onClick={() => {
+                                            this.getSortsItem(item.relatedName);
+                                        }}
+                                    >
+                                        {item.name}
+                                    </li>
+                                );
                             })}
                         </ul>
                     </div>
@@ -95,14 +112,17 @@ class ClassDetail extends Component {
                 classfication: [...res.data.data.class, ...res.data.data.tag]
             });
         });
+        this.getSortsItem("现代言情");
+    }
+    getSortsItem = id => {
         ajax.get(
-            "http://read.xiaoshuo1-sm.com/novel/i.php?do=is_caterank&p=1&page=1&words=&shuqi_h5=&onlyCpBooks=1&secondCate=%E7%8E%B0%E4%BB%A3%E8%A8%80%E6%83%85&sort=monthHot&_=1563871763457"
+            `http://read.xiaoshuo1-sm.com/novel/i.php?do=is_caterank&p=1&page=1&words=&shuqi_h5=&onlyCpBooks=1&secondCate=${id}&sort=monthHot&_=1563871763457`
         ).then(res => {
             this.setState({
                 content: res.data
             });
         });
-    }
+    };
 }
 
 export default ClassDetail;
