@@ -13,6 +13,7 @@ import Boysbook from "./page/list/boy";
 import Girlsbook from "./page/list/girl";
 import Booklist from "./page/list/booklist";
 import Search from "./page/search";
+import Bookstore from "./page/bookstore";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Switch>
+              <Route path="/bookstore" component={Bookstore} />
               <Route path="/search" component={Search} />
               <Route path="/girl" component={Girlsbook} />
               <Route path="/boy" component={Boysbook} />
