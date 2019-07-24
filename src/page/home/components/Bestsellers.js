@@ -10,7 +10,7 @@ class Bestsellers extends Component {
       <div>
         <div className="title-header">
           <i className="iconfont icon-EnergyResearch" />
-          <h3 className="home-title">销量极好榜</h3>
+          <h3 className="home-title">{this.props.children}</h3>
         </div>
         {this.props.bestList.map((item, index) => {
           if (index === 0) {
@@ -49,24 +49,6 @@ class Bestsellers extends Component {
             );
           }
         })}
-
-        {/* <ul className='new-ul'>
-              <li className='new-li'>
-                <i>2</i>
-                <h3>重生之潇洒走一回</h3>
-                <div className='book-item-tag '><span className='tag-spe'>连载</span><span>160万</span></div>
-              </li>
-              <li className='new-li'>
-                <i>3</i>
-                <h3>重生之潇洒走一回</h3>
-                <div className='book-item-tag '><span className='tag-spe'>连载</span><span>160万</span></div>
-              </li>
-              <li className='new-li'>
-                <i>4</i>
-                <h3>重生之潇洒走一回</h3>
-                <div className='book-item-tag '><span className='tag-spe'>连载</span><span>160万</span></div>
-              </li>
-            </ul> */}
         <div className="home-change">
           <span>查看更多</span>
         </div>

@@ -12,7 +12,7 @@ class Girls extends Component{
         <div>
           <div className='title-header'>
             <i className='iconfont icon-AirPollution girl'></i>
-            <h3 className='home-title'>萌妹专享</h3>
+            <h3 className='home-title'>{this.props.children}</h3>
           </div>
           
           <ul className='title-ul'>
