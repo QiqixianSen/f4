@@ -37,6 +37,7 @@ class Others extends Component {
 const mapState = (state) => ({
   otherList: state.detail.otherList
 });
+
 export default connect(
   mapState,
   null

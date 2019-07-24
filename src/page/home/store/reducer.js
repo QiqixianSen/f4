@@ -7,6 +7,7 @@ const defaultState = {
   newList: [], //新书和畅享
   bestList: [],
   girlList: [],
+  name:'',
   boyList: [],
   bid:'',
   author_name:'',
@@ -40,7 +41,8 @@ export default (state = defaultState, action) => {
         {},
         state,
         { girlList: action.girlList },
-        { boyList: action.boyList }
+        { boyList: action.boyList },
+        {name:action.name}
       );
     case constants.CHANGE_GIRL:
       return Object.assign({}, state, { girlList: action.girlList });

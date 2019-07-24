@@ -19,7 +19,7 @@ class Home extends Component {
                 <Header />
                 <HomeNav />
                 <Giftware />
-                <Girls getGirls={this.props.getGirls} />
+                <Girls getGirls={this.props.getGirls}>女生美文</Girls>
                 <Boys />
                 <NewBooks />
                 <Bestsellers />
