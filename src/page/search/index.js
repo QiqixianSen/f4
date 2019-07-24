@@ -38,7 +38,12 @@ class index extends Component {
               })}
           </ul>
           <div className="check">
-            <span className="checkout" onClick={this.checkList}>
+            <span
+              className="checkout"
+              onClick={() => {
+                this.checkList();
+              }}
+            >
               换一换
             </span>
             <span className="icon iconfont quanquan">&#xe65f;</span>
@@ -55,6 +60,7 @@ class index extends Component {
   };
   checkList = () => {
     // console.log(this.props);
+    console.log(111);
     this.props.getreList();
   };
   componentDidMount() {
