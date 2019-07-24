@@ -5,12 +5,19 @@ import "./index.scss";
 
 class ClassDetail extends Component {
     state = {
-        classfication: [],
+        classfication1: [],
+        classfication2: [],
         content: {}
     };
+    cid = this.props.location.pathname.split("/")[2];
     render() {
+        console.log(this.state);
         let { location } = this.props;
         let name = decodeURI(location.search.substring(1));
+        name = name.split("?")[0];
+        let derelatedName = decodeURI(location.search.substring(1)).split(
+            "?"
+        )[1];
         return (
             <div className="classdetail">
                 <Header {...this.props}>{name}</Header>
@@ -19,14 +26,25 @@ class ClassDetail extends Component {
                         <ul>
                             <li
                                 onClick={() => {
-                                    this.getSortsItem(
-                                        this.state.classfication[0].secondCate
-                                    );
+                                    this.getSortsItem(derelatedName, null);
                                 }}
                             >
                                 全部
                             </li>
-                            {this.state.classfication.map(item => {
+                            {this.state.classfication1.map(item => {
+                                return (
+                                    <li
+                                        key={item.id}
+                                        onClick={() => {
+                                            this.getSortsItem(item.relatedName);
+                                        }}
+                                    >
+                                        {item.name}
+                                    </li>
+                                );
+                            })}
+                            {this.state.classfication2.map(item => {
+                                console.log(this.state.classfication2);
                                 return (
                                     <li
                                         key={item.id}
@@ -103,20 +121,24 @@ class ClassDetail extends Component {
     componentDidMount() {
         ajax.post("/webapi/rank/classrelation?_=1563863797060", {
             type: 2,
-            cid: 21,
+            cid: this.cid,
             timestamp: 1563863797059,
             sign: "9ca188661880712acfd4c180e970fda3",
             shuqi_h5: ""
         }).then(res => {
             this.setState({
-                classfication: [...res.data.data.class, ...res.data.data.tag]
+                classfication1: [...res.data.data.class],
+                classfication2: [...res.data.data.tag]
             });
         });
-        this.getSortsItem("现代言情");
+        this.getSortsItem(
+            decodeURI(this.props.location.search.substring(1)).split("?")[1],
+            decodeURI(this.props.location.search.substring(1)).split("?")[1]
+        );
     }
-    getSortsItem = id => {
+    getSortsItem = (id, name) => {
         ajax.get(
-            `http://read.xiaoshuo1-sm.com/novel/i.php?do=is_caterank&p=1&page=1&words=&shuqi_h5=&onlyCpBooks=1&secondCate=${id}&sort=monthHot&_=1563871763457`
+            `http://read.xiaoshuo1-sm.com/novel/i.php?do=is_caterank&p=1&page=1&words=&shuqi_h5=&onlyCpBooks=1&firstCode=${name}&secondCate=${id}&sort=monthHot&_=1563871763457`
         ).then(res => {
             this.setState({
                 content: res.data
