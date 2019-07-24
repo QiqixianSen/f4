@@ -15,6 +15,7 @@ class Choiceness extends Component {
         <ul>
           {this.props.list.map(item => {
             return (
+            
               <li className="choice-li" key={item.id}>
                 <div className="choice-left">
                   <h4 className="new-title">{item.title}</h4>
@@ -34,6 +35,7 @@ class Choiceness extends Component {
                   alt=""
                 />
               </li>
+            
             );
           })}
         </ul>

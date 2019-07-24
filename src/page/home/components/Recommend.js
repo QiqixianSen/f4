@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {Toast} from 'antd-mobile'
+import {Toast} from 'antd-mobile';
+import {Link} from 'react-router-dom'
 
 import "../style.scss";
 import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
@@ -19,6 +20,7 @@ class Recommend extends Component {
     if (remList.length) {
       for (let i = 0; i < this.state.page * 5; i++) {
         list.push(
+          <Link key={remList[i].bid} to={`/detail/authorId=${remList[i].author}&bookId=${remList[i].bid}&authorName=${remList[i].author_name}&id=7850265`}>
           <div className="new-one" key={remList[i].bid}>
             <div className="new-left">
               <img src={remList[i].book_cover} alt="" />
@@ -38,6 +40,7 @@ class Recommend extends Component {
               </div>
             </div>
           </div>
+          </Link>
         );
       }
     }
