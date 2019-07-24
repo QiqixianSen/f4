@@ -12,7 +12,7 @@ class Girls extends Component{
         <div>
           <div className='title-header'>
             <i className='iconfont icon-AirPollution girl'></i>
-            <h3 className='home-title'>萌妹专享</h3>
+            <h3 className='home-title'>{this.props.children}</h3>
           </div>
           
           <ul className='title-ul'>
@@ -21,7 +21,7 @@ class Girls extends Component{
             if(index<4){
               return(
                 <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7520816`} >
-                <li className='title-li' key={item.bid}>
+                <li className='title-li' key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
                   <img className='cover-img' src={item.book_cover} alt=""/>
                   <p className='book-name'>{item.bookname}</p>
                 <span className='book-author'>{item.author_name}</span>
@@ -38,7 +38,7 @@ class Girls extends Component{
             if(index>=4){
                 return(
                   <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7894750`} >
-                  <li className='book-item' key={item.bid}>
+                  <li className='book-item' key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
                     <div className='book-item-top'>
                       <h6 className='book-item-name'>{item.bookname}</h6>
                       <div className='book-item-tag'>
@@ -65,16 +65,21 @@ class Girls extends Component{
         
     )
 }
+
 }
 const mapState = (state)=>({
-  girlList:state.home.girlList
+  girlList:state.home.girlList,
+  name:state.home.name
 })
 
 //获取数据
 const mapDispatch=(dispatch)=>({
   changeList(){
     dispatch(actionCreators.changeListInfo())
-  }
+  },
+  handleDetail(bid,author_name,book_cover,book_info,bookname,size,stat_name){
+    dispatch(actionCreators.getInfo(bid,author_name,book_cover,book_info,bookname,size,stat_name))
+  },
 
 })
 

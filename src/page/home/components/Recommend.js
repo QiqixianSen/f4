@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {Toast} from 'antd-mobile';
 import {Link} from 'react-router-dom'
-
+import * as actionCreators from "../store/actionCreators";
 import "../style.scss";
 import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
+
 
 class Recommend extends Component {
   constructor(){
@@ -21,7 +22,7 @@ class Recommend extends Component {
       for (let i = 0; i < this.state.page * 5; i++) {
         list.push(
           <Link key={remList[i].bid} to={`/detail/authorId=${remList[i].author}&bookId=${remList[i].bid}&authorName=${remList[i].author_name}&id=7850265`}>
-          <div className="new-one" key={remList[i].bid}>
+          <div className="new-one" key={remList[i].bid} onClick={()=>{this.props.handleDetail(remList[i].bid,remList[i].author_name,remList[i].book_cover,remList[i].book_info,remList[i].bookname,remList[i].size,remList[i].stat_name)}}>
             <div className="new-left">
               <img src={remList[i].book_cover} alt="" />
             </div>
@@ -79,7 +80,15 @@ const mapState = state => ({
   remList: state.home.remList
 });
 
+const mapDispatch = dispatch =>({
+
+    handleDetail(bid,author_name,book_cover,book_info,bookname,size,stat_name){
+      dispatch(actionCreators.getInfo(bid,author_name,book_cover,book_info,bookname,size,stat_name))
+    },
+
+})
+
 export default connect(
   mapState,
-  null
+  mapDispatch
 )(Recommend);
