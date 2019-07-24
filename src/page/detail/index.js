@@ -19,7 +19,7 @@ class Detail extends Component{
     render(){
       return (
         <div className='home'>
-            <Header>书籍详情</Header>
+            <Header {...this.props}>书籍详情</Header>
             <Book />
             <Comment />
             <Others />
@@ -38,11 +38,17 @@ class Detail extends Component{
       )
   }
   componentDidMount(){
-    this.props.getBookInfo()
+
     this.props.getCommentInfo()
     this.props.getOtherInfo()
+    this.handleToTop()
+
+
   }
-  
+  //点击书籍跳转到详情页顶部
+  handleToTop = ()=>{
+    window.scrollTo(0,0)
+}
   }
 
 const mapDispatch=(dispatch,props)=>({
@@ -50,14 +56,12 @@ const mapDispatch=(dispatch,props)=>({
         console.log(props)
         dispatch(actionCreators.getBooks(props.match.params.id))
     },
-    getBookInfo(){
-        console.log(props)
-        dispatch(actionCreators.getBooksDetail(props.match.params.id))
-    },
+
     getOtherInfo(){
         console.log(props)
         dispatch(actionCreators.getOtherDetail())
-    }
+    },
+
 
 })
   

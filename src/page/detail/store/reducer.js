@@ -1,9 +1,10 @@
 import * as constants from './constants'
 
 const defaultState = {
-    detailList:[],//详情
+    // detailList:[],//详情
     commentList:[],
-    otherList:[]
+    otherList:[],
+    img:''
 }
 
 export default (state=defaultState,action)=>{
@@ -12,6 +13,10 @@ export default (state=defaultState,action)=>{
             return Object.assign({},state,{commentList:action.datas})
         case constants.CHANGE_OTHER:
             return Object.assign({},state,{otherList:action.otherList})
+        case constants.CHANGE_DETAIL:
+            return Object.assign({},state,{detailList:action.detailList})
+            case constants.ADD:
+            return Object.assign({},state,{img:action.image})
         default:
             return state
     }

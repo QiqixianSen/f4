@@ -15,12 +15,25 @@ function randomColor() {
   var rgb = "rgb(" + r + "," + g + "," + b + ")";
   return rgb;
 }
+const rannum = function(num) {
+  let arr = [];
+  for (let i = 0; i < num; i++) {
+    let t = Math.floor(Math.random() * 10);
+    arr.push(t);
+  }
+  return arr;
+};
+const getreg = function() {
+  return "rotate(" + Math.round(Math.random() * 360) + "deg)";
+};
 export default class Login extends Component {
   state = {
+    reg: [getreg(), getreg(), getreg(), getreg()],
+    rgb: [randomColor(), randomColor(), randomColor(), randomColor()],
     phonpass: "",
     pwd: "",
-    arr: [],
-    bgc: "",
+    arr: rannum(4),
+    bgc: randomColor(),
     value: "",
     hasError: false,
     usehasError: false,
@@ -67,18 +80,12 @@ export default class Login extends Component {
     });
   };
 
-  rannum = function(num) {
-    let arr = [];
-    for (let i = 0; i < num; i++) {
-      let t = Math.floor(Math.random() * 10);
-      arr.push(t);
-    }
-    return arr;
-  };
   setarr = () => {
     this.setState({
-      arr: this.rannum(4),
-      bgc: randomColor()
+      arr: rannum(4),
+      bgc: randomColor(),
+      reg: [getreg(), getreg(), getreg(), getreg()],
+      rgb: [randomColor(), randomColor(), randomColor(), randomColor()]
     });
   };
 
@@ -231,16 +238,13 @@ export default class Login extends Component {
                       className="check"
                       style={{ background: this.state.bgc }}
                     >
-                      {this.rannum(4).map((item, index) => {
+                      {this.state.arr.map((item, index) => {
                         return (
                           <span
                             key={index}
                             style={{
-                              color: randomColor(),
-                              transform:
-                                "rotate(" +
-                                Math.round(Math.random() * 360) +
-                                "deg)",
+                              color: this.state.rgb[index],
+                              transform: this.state.reg[index],
                               display: "inlineBlock"
                             }}
                             className="radnum"
