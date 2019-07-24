@@ -7,11 +7,11 @@ import "./index.scss";
 class Item extends Component {
     render() {
         let { list } = this.props;
-
         let item = Object.keys(list);
+        let cid = list[item].cid;
         return (
             <li className="list-item">
-                <Link href="">
+                <Link to={"/classDetail/" + cid + "?" + item}>
                     <div
                         className="img"
                         style={{

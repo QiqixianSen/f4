@@ -1,0 +1,58 @@
+@import "../../statics/style/mixin.scss";
+@import "../../../src/statics/style/px2rem.scss";
+
+.serchInp {
+  height: px2rem(60);
+  widows: 100%;
+  background-color: #999;
+}
+
+.seachList {
+  height: px2rem(160);
+  width: 100%;
+  padding: px2rem(20) 0 px2rem(10) 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  @include border-bottom;
+  .list-sea {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    .list {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      border: 0.02rem solid #e6e6e6;
+      border-radius: 3.3rem;
+      height: px2rem(31);
+      line-height: px2rem(31);
+      font-size: 12px;
+      color: #333;
+      padding: 0 0.18rem;
+      text-align: center;
+      width: px2rem(91);
+    }
+  }
+}
+.check {
+  background-color: #fff;
+  width: 100%;
+  height: 4.56rem;
+  display: flex;
+  justify-content: center;
+  .quanquan {
+    display: inline-block;
+    width: 0.24rem;
+    // height: 0.24rem;
+    margin-left: 0.08rem;
+    line-height: 0.24rem;
+    font-size: px2rem(20);
+    padding-top: px2rem(20);
+  }
+  .checkout {
+    font-size: px2rem(14);
+    padding-top: px2rem(20);
+  }
+}

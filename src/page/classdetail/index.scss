@@ -1,0 +1,117 @@
+@import "../../statics/style/px2rem.scss";
+@import "../../statics/style/mixin.scss";
+
+.classdetail {
+    background: #f0f0f3;
+    width: 100%;
+    height: 100%;
+    .classfication {
+        width: 100%;
+        padding-left: px2rem(24);
+        box-sizing: border-box;
+        background: #fff;
+        ul {
+            padding-top: px2rem(16);
+            display: flex;
+            flex-wrap: wrap;
+            @include border-bottom;
+            li:first-child {
+                color: #00c98d;
+            }
+            li {
+                margin: 0 px2rem(28) px2rem(18) 0;
+                font-size: 15px;
+            }
+        }
+    }
+    .content {
+        margin-top: px2rem(12);
+        background: #fff;
+        padding-left: px2rem(24);
+        width: 100%;
+        box-sizing: border-box;
+        .new-one {
+            height: px2rem(153);
+            box-sizing: border-box;
+            padding: px2rem(16);
+            padding-left: 0;
+            width: 100%;
+            display: flex;
+            @include border-bottom;
+
+            .new-left {
+                margin-right: px2rem(16);
+                img {
+                    width: px2rem(84);
+                    height: px2rem(112);
+                }
+            }
+        }
+        .book-desc-bb {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
+            height: px2rem(36);
+            line-height: px2rem(18);
+            margin: px2rem(10) 0;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            color: #999;
+        }
+        .new-title {
+            color: #333;
+            font-size: 16px;
+            line-height: px2rem(18);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .new-author {
+            font-size: 12px;
+            line-height: px2rem(16);
+            color: #999;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: px2rem(8);
+            max-height: 100%;
+        }
+        .new-right {
+            padding-right: px2rem(18);
+            box-sizing: border-box;
+            flex: 1;
+            width: 75%;
+        }
+        .new-num {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #fff;
+        }
+
+        .new-li {
+            padding: px2rem(15) px2rem(15) px2rem(16) 0;
+            border-top: 1px solid #f3f3f3;
+            margin-left: px2rem(16);
+            @include border-bottom;
+            display: flex;
+            justify-content: space-between;
+            h3 {
+                color: #333;
+                font-size: 16px;
+                margin-left: px2rem(2);
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                word-break: break-all;
+            }
+            i {
+                font-size: 20px;
+                color: #ffbe73;
+            }
+            span {
+                top: px2rem(-3);
+            }
+        }
+    }
+}

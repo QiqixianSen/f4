@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { NavBar, Icon } from "antd-mobile";
 
-
 export default class Index extends Component {
   render() {
     return (
@@ -17,13 +16,15 @@ export default class Index extends Component {
               }}
             />
           }
-          onLeftClick={() => console.log("onLeftClick")}
           rightContent={[
-            <i className='iconfont icon-home-g' style={{fontSize:'26px'}}
+            <i
+              key
+              className="iconfont icon-home-g"
+              style={{ fontSize: "26px" }}
               onClick={() => {
                 this.props.history.push("/home");
               }}
-            ></i>
+            />
           ]}
         >
           {this.props.children}

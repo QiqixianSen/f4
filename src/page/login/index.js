@@ -40,6 +40,8 @@ export default class Login extends Component {
       if (res.code === 0) {
         Toast.success("登陆成功", 1);
         this.props.history.push("/");
+      } else {
+        Toast.success("用户名密码错误", 1);
       }
     });
   };
@@ -169,11 +171,6 @@ export default class Login extends Component {
                       onClick={this.loginSin}
                       type="primary"
                       disabled={(() => {
-                        console.log(
-                          this.state.checked,
-                          this.state.usevalue,
-                          this.state.pwd
-                        );
                         if (
                           this.state.checked !== "" &&
                           this.state.usevalue !== "" &&
