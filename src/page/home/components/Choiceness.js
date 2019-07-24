@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom'
 import "../style.scss";
 import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
 
@@ -36,11 +37,14 @@ class Choiceness extends Component {
             );
           })}
         </ul>
+        <Link to='/bookList'>
         <div className="home-change">
           <span>查看更多</span>
         </div>
+        </Link>
         <div className="white-space" />
       </div>
+      
     );
   }
 }
