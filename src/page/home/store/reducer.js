@@ -7,7 +7,14 @@ const defaultState = {
   newList: [], //新书和畅享
   bestList: [],
   girlList: [],
-  boyList: []
+  boyList: [],
+  bid:'',
+  author_name:'',
+  book_cover:'',
+  book_info:'',
+  bookname:'',
+  size:'',
+  stat_name:''
 };
 
 export default (state = defaultState, action) => {
@@ -39,6 +46,19 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, { girlList: action.girlList });
     case constants.CHANGE_BOY:
       return Object.assign({}, state, { boyList: action.boyList });
+    case constants.AA:
+      return Object.assign(
+        {}, 
+        state, 
+        { bid: action.bid},
+        {author_name:action.author_name},
+        { book_cover:action.book_cover},
+        { book_info:action. book_info},
+        {bookname:action.bookname},
+        {size:action.size},
+        {stat_name:action.stat_name}
+
+      );
     default:
       return state;
   }

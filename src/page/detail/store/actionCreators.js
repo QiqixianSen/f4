@@ -12,6 +12,12 @@ export const changeDetail=(datas)=>({
     type:constants.CHANGE_DETAIL,
     detailList:datas
 })
+export const add=(image,title)=>({
+    type:constants.ADD,
+    image,
+    title
+    
+})
 export const getBooks=(id)=>{
     const data=id.split('&')
     const authorId = data[0].split('=')[1]
@@ -27,23 +33,7 @@ export const getBooks=(id)=>{
     }
 
 }
-export const getBooksDetail=(id)=>{
-    console.log(id)
-    const data=id.split('&')
-    const bid= data[3].split('=')[1]
-    console.log(id)
-    return (dispatch)=>{
-        axios.get(`http://localhost:9090/books/?bookId=${bid}`
-        ).then(res=>{
-            console.log(res)
-            const datas=res.data
-            console.log(datas)
-            dispatch(changeDetail(datas))
 
-        })
-    }
-
-}
 
 export const getOtherDetail=()=>{
     return (dispatch)=>{
@@ -55,3 +45,4 @@ export const getOtherDetail=()=>{
         })
     }
 }
+
