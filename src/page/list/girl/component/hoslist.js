@@ -8,7 +8,7 @@ import "./index.scss";
 
 class Hotlist extends Component {
  render() {
- console.log(this.props.swiperlist)
+//  console.log(this.props.swiperlist)
   return (
    <div className="hotlist">
     <div className="title-header">
