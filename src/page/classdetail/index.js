@@ -112,6 +112,7 @@ class ClassDetail extends Component {
                 classfication: [...res.data.data.class, ...res.data.data.tag]
             });
         });
+        this.getSortsItem("现代言情");
     }
     getSortsItem = id => {
         ajax.get(
