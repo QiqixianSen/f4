@@ -3,10 +3,8 @@ import "./index.scss";
 
 
 export default class Side1 extends Component {
-    render(props) {
-        
-    console.log(this.props)
-    // const { list } = this.props
+    render() {
+   
     return (
       <div>
         <div className="classTypes">
