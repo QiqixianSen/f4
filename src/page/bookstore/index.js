@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBar from "../../common/header";
 import "./index.scss";
 import Footer from "../../common/footer";
+// import { ImagePicker } from "antd-mobile";
 
 export default class index extends Component {
   render() {
@@ -18,6 +19,9 @@ export default class index extends Component {
             <div className="bookCity">去书城</div>
           </div>
         </div>
+        {/* <ImagePicker
+          files={["http://img-tailor.11222.cn/bcv/big/201812041349438062.jpg"]}
+        /> */}
         <Footer />
       </div>
     );

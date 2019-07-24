@@ -33,8 +33,9 @@ export default class Register extends Component {
     password: "",
     arr: rannum(4),
     bgc: randomColor(),
+    rgb: [randomColor(), randomColor(), randomColor(), randomColor()],
     checked: "",
-    reg: getdeg()
+    reg: [getdeg(), getdeg(), getdeg(), getdeg()]
   };
 
   setarr = () => {
@@ -42,7 +43,8 @@ export default class Register extends Component {
     this.setState({
       arr: rannum(4),
       bgc: randomColor(),
-      reg: getdeg()
+      reg: [getdeg(), getdeg(), getdeg(), getdeg()],
+      rgb: [randomColor(), randomColor(), randomColor(), randomColor()]
     });
   };
   signIn = () => {
@@ -97,8 +99,8 @@ export default class Register extends Component {
                   <span
                     key={index}
                     style={{
-                      color: randomColor(),
-                      transform: getdeg(),
+                      color: this.state.bgc[index],
+                      transform: this.state.reg[index],
                       display: "inlineBlock"
                     }}
                     className="radnum"
