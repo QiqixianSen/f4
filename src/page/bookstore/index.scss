@@ -32,3 +32,26 @@
     margin: px2rem(58.5) auto 0;
   }
 }
+.bookList {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 999;
+  position: absolute;
+  top: px2rem(58);
+  li {
+    width: 24%;
+    padding: px2ren(12) px2ren(24) px2ren(12) 0;
+    img {
+      width: px2rem(93);
+    }
+    p {
+      padding-top: px2rem(12);
+      font-size: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+  }
+}

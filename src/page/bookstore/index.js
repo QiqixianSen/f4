@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import NavBar from "../../common/header";
 import "./index.scss";
 import Footer from "../../common/footer";
-// import { ImagePicker } from "antd-mobile";
 
 export default class index extends Component {
   render() {
+    let arr = JSON.parse(localStorage.getItem("book"));
+    console.log(arr);
     return (
       <div>
         <NavBar {...this.props}>我的书架</NavBar>
@@ -19,9 +20,16 @@ export default class index extends Component {
             <div className="bookCity">去书城</div>
           </div>
         </div>
-        {/* <ImagePicker
-          files={["http://img-tailor.11222.cn/bcv/big/201812041349438062.jpg"]}
-        /> */}
+        <ul className="bookList">
+          {arr.map((item, index) => {
+            return (
+              <li key={index}>
+                <img src={item.img} alt="" />
+                <p>{item.name}</p>
+              </li>
+            );
+          })}
+        </ul>
         <Footer />
       </div>
     );
