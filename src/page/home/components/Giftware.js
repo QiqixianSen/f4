@@ -20,8 +20,8 @@ class Giftware extends Component{
           <ul className='title-ul'>
           {giftList.map(item=>{
             return(
-              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7850265`} >
-              <li className='title-li' key={item.bid}>
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
+              <li className='title-li' key={item.bid} onClick={this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)} >
                 <img className='cover-img' src={item.book_cover} alt=""/>
                 <p className='book-name'>{item.bookname}</p>
               <span className='book-author'>{item.author_name}</span>
@@ -47,6 +47,7 @@ class Giftware extends Component{
     
   }
 
+
 }
 const mapState = (state)=>({
     giftList:state.home.giftList
@@ -60,6 +61,9 @@ const mapDispatch = (dispatch)=>({
   },
   //获取数据
 
+  handleDetail(bid,author_name,book_cover,book_info,bookname,size,stat_name){
+    dispatch(actionCreators.getInfo(bid,author_name,book_cover,book_info,bookname,size,stat_name))
+  },
 
 })
 

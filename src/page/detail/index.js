@@ -38,10 +38,11 @@ class Detail extends Component{
       )
   }
   componentDidMount(){
-    this.props.getBookInfo()
+
     this.props.getCommentInfo()
     this.props.getOtherInfo()
     this.handleToTop()
+
 
   }
   //点击书籍跳转到详情页顶部
@@ -55,14 +56,12 @@ const mapDispatch=(dispatch,props)=>({
         console.log(props)
         dispatch(actionCreators.getBooks(props.match.params.id))
     },
-    getBookInfo(){
-        console.log(props)
-        dispatch(actionCreators.getBooksDetail(props.match.params.id))
-    },
+
     getOtherInfo(){
         console.log(props)
         dispatch(actionCreators.getOtherDetail())
-    }
+    },
+
 
 })
   

@@ -35,6 +35,17 @@ export const changeBoy=(boyList)=>({
     boyList,
 
 })
+export const getInfo=(bid,author_name,book_cover,book_info,bookname,size,stat_name)=>({
+    type:constants.AA,
+    bid,
+    author_name,
+    book_cover,
+    book_info,
+    bookname,
+    size,
+    stat_name
+
+})
 
 
 export const getListInfo=()=>{
@@ -43,6 +54,7 @@ export const getListInfo=()=>{
             const data=res.data.data.module;
             const list = data[3].content
             dispatch(changeGiftList(list))
+            console.log(list)
     
         })
     }
