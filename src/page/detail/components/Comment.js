@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
 import "../style.scss";
 
 class Comment extends Component {
@@ -10,33 +11,19 @@ class Comment extends Component {
           <h3 className="home-title">精华评论</h3>
         </div>
         <ul className='commit-ul'>
-          <li>
-            <div className='commit-header'>
-              <img src="https://tfs.alipayobjects.com/images/partner/T11EtcXjxAXXXXXXXX" alt=""/>
-              <span>陶渊明</span>
-            </div>
-            <div className='commit-p'>
-              <p>很好看很哈看恒大'东风风光过或或或或军或过军军或[iuuuyyutrtbuyt  tythghg 华府快捷键反馈卡感觉更苟富贵过过过过过过过</p>
-            </div>
-          </li>
-          <li>
-            <div className='commit-header'>
-              <img src="https://tfs.alipayobjects.com/images/partner/T11EtcXjxAXXXXXXXX" alt=""/>
-              <span>陶渊明</span>
-            </div>
-            <div className='commit-p'>
-              <p>很好看很哈看恒大'东风风光过或或或或军或过军军或[iuuuyyutrtbuyt  tythghg 华府快捷键反馈卡感觉更苟富贵过过过过过过过</p>
-            </div>
-          </li>
-          <li>
-            <div className='commit-header'>
-              <img src="https://tfs.alipayobjects.com/images/partner/T11EtcXjxAXXXXXXXX" alt=""/>
-              <span>陶渊明</span>
-            </div>
-            <div className='commit-p'>
-              <p>很好看很哈看恒大'东风风光过或或或或军或过军军或[iuuuyyutrtbuyt  tythghg 华府快捷键反馈卡感觉更苟富贵过过过过过过过</p>
-            </div>
-          </li>
+        {this.props.list.map((item,index)=>{
+          return(
+            <li key={index}>
+              <div className='commit-header'>
+                <img src={item.userPhoto} alt=""/>
+                <span>{item.uid}</span>
+              </div>
+              <div className='commit-p'>
+                <p>{item.text}</p>
+              </div>
+            </li>
+          )
+        })}
         </ul>
         <div className='white-space'></div>
       </div>
@@ -44,4 +31,7 @@ class Comment extends Component {
   }
 }
 
-export default Comment;
+const mapState = (state)=>({
+  list:state.detail.commentList
+})
+export default connect(mapState,null)(Comment);

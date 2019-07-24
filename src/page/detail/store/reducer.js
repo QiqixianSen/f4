@@ -1,7 +1,19 @@
+import * as constants from './constants'
+
 const defaultState = {
     detailList:[],//详情
+    commentList:[],
+    otherList:[]
 }
 
 export default (state=defaultState,action)=>{
-    return state
+    switch(action.type){
+        case constants.CHANGE_COMMENT:
+            return Object.assign({},state,{commentList:action.datas})
+        case constants.CHANGE_OTHER:
+            return Object.assign({},state,{otherList:action.otherList})
+        default:
+            return state
+    }
+    
 }

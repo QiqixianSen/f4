@@ -56,7 +56,43 @@
     }
 }
 
-
+.book-desc{
+    position: relative;
+    margin: 0 px2rem(16);
+    padding-top: px2rem(14);
+    p{
+        line-height: px2rem(22);
+        font-size: 14px;
+        color: #999;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+    
+    }
+    .p-spe{
+        display: block;
+    }
+    .icon{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: #999;
+    }
+}
+.my-list{
+    span{
+        font-size:14px; 
+        color: #999;
+    }
+    i{
+        font-size:14px; 
+        color: #333;
+        margin-right: px2rem(10);
+    }
+    
+}
 .commit-detail{
     ul{
         padding: 0 px2rem(16);

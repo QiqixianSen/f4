@@ -44,11 +44,12 @@
     display: flex;
     padding: px2rem(16) 0 px2rem(16) px2rem(16);
     @include border-bottom;
+     a{
+        flex: 1;
+        width: 25%
+    }
 }
-.title-li {
-    flex: 1;
-    width: 25%
-}
+
 .cover-img {
     height: px2rem(98);
     width: px2rem(74);
@@ -104,7 +105,7 @@
 }
 
 .book-item {
-    padding: px2rem(16) px2rem(16) px2rem(16) px2rem(12);
+    padding: px2rem(15) px2rem(16) px2rem(16) px2rem(12);
     @include border-bottom;
 }
 .book-item-top {
@@ -118,6 +119,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        line-height: px2rem(16)
     }
 }
 .book-item-tag {
@@ -139,27 +141,28 @@
     }
 }
 .new-tags {
-    top: 0;
+    margin-top: px2rem(5)
 }
 .book-item-desc {
     overflow: hidden;
-    white-space: nowrap;
+    white-space: wrap;
     text-overflow: ellipsis;
     font-size: 12px;
-    line-height: px2rem(16);
+    line-height: px2rem(18);
     height: px2rem(16);
     color: #999;
 }
+//两行显示省略号
 .new-desc {
     height: px2rem(36);
-    line-height: px2rem(16);
-    margin-top: px2rem(8);
     display: -webkit-box;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    max-height: 100%;
+}
+//一行显示省略号
+.one{
+    white-space: nowrap;
 }
 
 .new-one {
@@ -188,7 +191,7 @@
 }
 .new-author {
     font-size: 12px;
-    line-height: px2rem(16);
+    line-height: px2rem(32);
     color: #999;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -196,7 +199,7 @@
     max-height: 100%;
 }
 .new-right {
-    padding-right: px2rem(18);
+    // padding-right: px2rem(18);
     box-sizing: border-box;
     flex: 1;
     width: 75%;
@@ -210,7 +213,7 @@
 
 .new-li {
     padding: px2rem(15) px2rem(15) px2rem(16) 0;
-    border-top: 1px solid #f3f3f3;
+    // border-top: 1px solid #f3f3f3;
     margin-left: px2rem(16);
     @include border-bottom;
     display: flex;

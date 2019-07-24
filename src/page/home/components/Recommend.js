@@ -65,7 +65,6 @@ class Recommend extends Component {
       })
     }else{
         Toast.info('已经全部加载完啦', 1);
-      
       return false
     }
     

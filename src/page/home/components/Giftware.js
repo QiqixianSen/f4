@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import * as actionCreators from '../store/actionCreators'
+import { Link } from 'react-router-dom';
 import '../style.scss';
 import '../../../statics/font_1307227_9qrecju4ty/iconfont.css';
 
@@ -19,12 +20,14 @@ class Giftware extends Component{
           <ul className='title-ul'>
           {giftList.map(item=>{
             return(
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
               <li className='title-li' key={item.bid}>
                 <img className='cover-img' src={item.book_cover} alt=""/>
                 <p className='book-name'>{item.bookname}</p>
               <span className='book-author'>{item.author_name}</span>
 
             </li>
+          </Link>
             )
           })}
 
