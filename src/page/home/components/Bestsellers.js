@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 import * as actionCreators from "../store/actionCreators";
 import "../style.scss";
 import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
@@ -15,6 +16,7 @@ class Bestsellers extends Component {
         {this.props.bestList.map((item, index) => {
           if (index === 0) {
             return (
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=4743151`} >
               <div className="new-one"  key={item.bid}>
                 <div className="new-left">
                   <img src={item.book_cover} alt="" />
@@ -33,9 +35,11 @@ class Bestsellers extends Component {
                   </div>
                 </div>
               </div>
+              </Link>
             );
           } else {
             return (
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=6688238`} >
               <li className="new-li" key={item.bid}>
                 <i>{index+1}</i>
                 <h3>{item.bookname}</h3>
@@ -46,6 +50,7 @@ class Bestsellers extends Component {
                   })}
                 </div>
               </li>
+              </Link>
             );
           }
         })}

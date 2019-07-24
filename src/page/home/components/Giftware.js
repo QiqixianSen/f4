@@ -20,7 +20,7 @@ class Giftware extends Component{
           <ul className='title-ul'>
           {giftList.map(item=>{
             return(
-              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7850265`} >
               <li className='title-li' key={item.bid}>
                 <img className='cover-img' src={item.book_cover} alt=""/>
                 <p className='book-name'>{item.bookname}</p>

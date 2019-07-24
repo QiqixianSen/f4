@@ -8,16 +8,18 @@ export const changeOtherList=(otherList)=>({
     type:constants.CHANGE_OTHER,
     otherList
 })
+export const changeDetail=(datas)=>({
+    type:constants.CHANGE_DETAIL,
+    detailList:datas
+})
 export const getBooks=(id)=>{
-    console.log(id)
     const data=id.split('&')
     const authorId = data[0].split('=')[1]
     const bookId = data[1].split('=')[1]
-    console.log(authorId,bookId)
+
     return (dispatch)=>{
         axios.get(`http://read.xiaoshuo1-sm.com/novel/i.php?do=sp_get&authorId=${authorId}&bookId=${bookId}&fetch=merge&sqUid=8000000&source=store&size=3&page=1&shuqi_h5=&_=1563894925079`
         ).then(res=>{
-            console.log(res)
             const datas=res.data.data
             dispatch(changeComment(datas))
 
@@ -28,28 +30,15 @@ export const getBooks=(id)=>{
 export const getBooksDetail=(id)=>{
     console.log(id)
     const data=id.split('&')
-    const authorId = data[0].split('=')[1]
-    let authorName=data[2].split('=')[1]
-    let bb=parseInt(authorId)
-    console.log(authorId,authorName)
+    const bid= data[3].split('=')[1]
+    console.log(id)
     return (dispatch)=>{
-        axios.get(`http://bookapi.shuqiapi.com/`,{
-            bamp: "sqat", 
-            authorname: encodeURI(authorName),
-            authorid: authorId,
-            limit: 4,
-            atType: "click",
-            fr_pr_id: 10001,
-            tk: "MzQ1MzAxNzQxN2FjNTllOWY%3D",
-            shuqi_h5: '',
-            _: 1563907979330
-
-        }
+        axios.get(`http://localhost:9090/books/?bookId=${bid}`
         ).then(res=>{
             console.log(res)
             const datas=res.data
             console.log(datas)
-            // dispatch(changeComment(datas))
+            dispatch(changeDetail(datas))
 
         })
     }

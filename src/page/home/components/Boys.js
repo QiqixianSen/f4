@@ -19,7 +19,7 @@ class Boys extends Component{
         {this.props.boyList.map((item,index)=>{
           if(index<4){
             return(
-              <Link key={item.bid} to={'/detail/'+item.bid} >
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7894750`} >
               <li className='title-li' key={item.bid}>
                 <img className='cover-img' src={item.book_cover} alt=""/>
                 <p className='book-name'>{item.bookname}</p>
@@ -36,8 +36,8 @@ class Boys extends Component{
         {this.props.boyList.map((item,index)=>{
           if(index>=4){
               return(
-                <Link key={item.bid} to={'/detail/'+item.bid} >
-                <li className='book-item' key={item.bid}>
+                <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7520816`} >
+                <li className='book-item' key={item.bid} >
                   <div className='book-item-top'>
                     <h6 className='book-item-name'>{item.bookname}</h6>
                     <div className='book-item-tag'>

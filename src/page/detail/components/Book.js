@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import '../style.scss';
 import { Button,Icon,List} from 'antd-mobile';
+import { connect } from 'react-redux';
 
 class Book extends Component{
     constructor(){
@@ -14,13 +15,16 @@ class Book extends Component{
     render(){
         return(
             <div className='book-detail'>
+            {this.props.list.map(item=>{
+                return (
+                    <div>
                 <div className='book-info'>
-                    <img src="http://img-tailor.11222.cn/bcv/big/1187967935557.jpg" alt=""/>
+                    <img src={item.imgUrl}  alt=""/>
                     <div>
                         <h4 className='book-title'>
-                        她似奶糖
+                        {item.bookName}
                         </h4>
-                        <p className='book-author'>凉久</p>
+                        <p className='book-author'>{item.authorName}</p>
                         <p className='book-tag'>
                         <span>青春校园</span>
                         <span>31万字</span>
@@ -35,12 +39,16 @@ class Book extends Component{
                 </div>
                 <div className='book-desc'>
                     <p className={this.state.show?'p-spe':" "}>
-                    林青禾穿进了小说里成为书中一个炮灰女配，小说背景架空了要吃没吃，要穿没穿的六零年代，虽然物资匮乏生活单调，但这并不是她所担忧的，因为她有一个不大的随身空间，里边塞满了物资，暂保衣食无忧。
-她担忧的是，要是她记得不错，她的三个便宜儿子未来会成为大反派ffffffffffffffffff ，
+                    {item.desc}
                     </p>
-
                     <Icon type={this.state.show?'up':'down'} className='icon' onClick={this.changeShow}/>
                 </div>
+                </div>
+                )
+            })}
+                
+                
+                 
                 <List className="my-list" style={{marginTop:"10px"}}>
                 <List.Item arrow="horizontal" multipleLine onClick={() => {}}>
                 <i className='iconfont icon-3lishi'></i><i>最新</i><span>第五十章，谁能最主</span>
@@ -60,5 +68,7 @@ class Book extends Component{
     }
 
 }
-
-export default Book
+const mapState=(state)=>({
+    list:state.detail.detailList
+})
+export default connect(mapState,null)(Book) 
