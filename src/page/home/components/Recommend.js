@@ -21,7 +21,7 @@ class Recommend extends Component {
     if (remList.length) {
       for (let i = 0; i < this.state.page * 5; i++) {
         list.push(
-          <Link key={remList[i].bid} to={`/detail/authorId=${remList[i].author}&bookId=${remList[i].bid}&authorName=${remList[i].author_name}&id=7850265`}>
+          <Link key={remList[i].bid} to={`/detail/authorId=${remList[i].author}&bookId=${remList[i].bid}&authorName=${remList[i].author_name}`}>
           <div className="new-one" key={remList[i].bid} onClick={()=>{this.props.handleDetail(remList[i].bid,remList[i].author_name,remList[i].book_cover,remList[i].book_info,remList[i].bookname,remList[i].size,remList[i].stat_name)}}>
             <div className="new-left">
               <img src={remList[i].book_cover} alt="" />

@@ -19,7 +19,7 @@ class Boys extends Component{
         {this.props.boyList.map((item,index)=>{
           if(index<4){
             return(
-              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7894750`} >
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
               <li className='title-li' key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
                 <img className='cover-img' src={item.book_cover} alt=""/>
                 <p className='book-name'>{item.bookname}</p>
@@ -36,7 +36,7 @@ class Boys extends Component{
         {this.props.boyList.map((item,index)=>{
           if(index>=4){
               return(
-                <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7520816`} >
+                <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
                 <li className='book-item' key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
                   <div className='book-item-top'>
                     <h6 className='book-item-name'>{item.bookname}</h6>

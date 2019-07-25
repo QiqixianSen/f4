@@ -37,7 +37,7 @@ class Girls extends Component{
           {this.props.girlList.map((item,index)=>{
             if(index>=4){
                 return(
-                  <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7894750`} >
+                  <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
                   <li className='book-item' key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
                     <div className='book-item-top'>
                       <h6 className='book-item-name'>{item.bookname}</h6>

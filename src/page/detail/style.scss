@@ -6,7 +6,7 @@
     display: flex;
     height: px2rem(130);
     display: flex;
-    padding: px2rem(20) px2rem(16)  px2rem(16);
+    padding: px2rem(20) px2rem(16) 0 px2rem(16);
     overflow: hidden;
     img{
         width: px2rem(98);
@@ -46,14 +46,16 @@
 }
 .book-choice{
     display: flex;
-    padding: 0 px2rem(16);
+    // padding: 0 px2rem(16);
     justify-content: space-around;
-    margin-top: px2rem(5);
+    // margin-top: px2rem(5);
     .am-button{
-        padding: 0 px2rem(20);
+      
             font-size: 14px;
-            height: px2rem(42);
-            line-height: px2rem(42)
+            height: px2rem(38);
+            line-height: px2rem(38);
+            flex:1;
+            margin:px2rem(5);
             
     
         
@@ -147,8 +149,10 @@
     flex-wrap: wrap;
     
     li{
-        width: px2rem(70);
         padding:0 px2rem(16) px2rem(10) 0;
+        width: 25%;
+        float: left;
+        box-sizing: border-box;
     }
     .book-name{
         overflow: hidden;

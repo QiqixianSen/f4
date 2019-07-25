@@ -16,7 +16,7 @@ class Bestsellers extends Component {
         {this.props.bestList.map((item, index) => {
           if (index === 0) {
             return (
-              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=4743151`} >
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
               <div className="new-one"  key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
                 <div className="new-left">
                   <img src={item.book_cover} alt="" />
@@ -39,7 +39,7 @@ class Bestsellers extends Component {
             );
           } else {
             return (
-              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=6688238`} >
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
               <li className="new-li" key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
                 <i>{index+1}</i>
                 <h3>{item.bookname}</h3>
@@ -54,6 +54,7 @@ class Bestsellers extends Component {
             );
           }
         })}
+
         <div className="home-change">
           <span>查看更多</span>
         </div>

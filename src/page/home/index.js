@@ -20,6 +20,7 @@ class Home extends Component {
                 <HomeNav />
                 <Giftware />
                 <Girls getGirls={this.props.getGirls}>女生美文</Girls>
+                {this.props.getGirls()}
                 <Boys />
                 <NewBooks />
                 <Bestsellers />
@@ -33,7 +34,7 @@ class Home extends Component {
     componentDidMount(){
         this.props.getRem()
         this.props.getBest()
-        this.props.getGirls()
+        
     }
 }
 

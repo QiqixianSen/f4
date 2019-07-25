@@ -30,7 +30,6 @@ class Giftware extends Component {
                     className="title-li"
                     key={item.bid}
                     onClick={() => {
-                      console.log(item.bid);
                       this.props.handleDetail(
                         item.bid,
                         item.author_name,
