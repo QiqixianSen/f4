@@ -6,7 +6,7 @@ import * as actionCreators from "../store/actionCreators";
 import "../style.scss";
 import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
 
-
+let obj={}
 class Recommend extends Component {
   constructor(){
     super()
@@ -22,7 +22,21 @@ class Recommend extends Component {
       for (let i = 0; i < this.state.page * 5; i++) {
         list.push(
           <Link key={remList[i].bid} to={`/detail/authorId=${remList[i].author}&bookId=${remList[i].bid}&authorName=${remList[i].author_name}`}>
-          <div className="new-one" key={remList[i].bid} onClick={()=>{this.props.handleDetail(remList[i].bid,remList[i].author_name,remList[i].book_cover,remList[i].book_info,remList[i].bookname,remList[i].size,remList[i].stat_name)}}>
+          <div className="new-one" key={remList[i].bid} onClick={()=>{{this.props.add(remList[i].book_cover,remList[i].bookname)}
+                      obj = {
+                        bid: remList[i].bid,
+                        author_name: remList[i].author_name,
+                        book_cover: remList[i].book_cover,
+                        book_info: remList[i].book_info,
+                        bookname: remList[i].bookname,
+                        size: remList[i].size,
+                        stat_name: remList[i].stat_name
+                      };
+                      window.localStorage.setItem(
+                        "detail",
+                        JSON.stringify(obj)
+                      );
+                    }}>
             <div className="new-left">
               <img src={remList[i].book_cover} alt="" />
             </div>
@@ -74,7 +88,11 @@ class Recommend extends Component {
     
    
   }
-  
+  componentDidMount(){
+    !this.props.remList.length&&this.props.getRem()
+
+
+}
 }
 const mapState = state => ({
   remList: state.home.remList
@@ -84,9 +102,19 @@ const mapDispatch = dispatch =>({
 
     handleDetail(bid,author_name,book_cover,book_info,bookname,size,stat_name){
       dispatch(actionCreators.getInfo(bid,author_name,book_cover,book_info,bookname,size,stat_name))
-    },
+  },
+getRem(){
+    dispatch(actionCreators.getRemList())
+  },
+  add(book_cover, bookname) {
+    dispatch(actionCreators.getInfo(book_cover, bookname));
+  }
+
+
 
 })
+
+
 
 export default connect(
   mapState,

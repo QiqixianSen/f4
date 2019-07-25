@@ -4,7 +4,7 @@ import * as actionCreators from '../store/actionCreators'
 import { Link } from 'react-router-dom';
 import '../style.scss';
 import '../../../statics/font_1307227_9qrecju4ty/iconfont.css';
-
+let obj={}
 class Boys extends Component{
   render(){
     return (
@@ -20,7 +20,21 @@ class Boys extends Component{
           if(index<4){
             return(
               <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
-              <li className='title-li' key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
+              <li className='title-li' key={item.bid} onClick={()=>{{this.props.add(item.book_cover,item.bookname)}
+                      obj = {
+                        bid: item.bid,
+                        author_name: item.author_name,
+                        book_cover: item.book_cover,
+                        book_info: item.book_info,
+                        bookname: item.bookname,
+                        size: item.size,
+                        stat_name: item.stat_name
+                      };
+                      window.localStorage.setItem(
+                        "detail",
+                        JSON.stringify(obj)
+                      );
+                    }}>
                 <img className='cover-img' src={item.book_cover} alt=""/>
                 <p className='book-name'>{item.bookname}</p>
               <span className='book-author'>{item.author_name}</span>
@@ -37,7 +51,21 @@ class Boys extends Component{
           if(index>=4){
               return(
                 <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
-                <li className='book-item' key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
+                <li className='book-item' key={item.bid} onClick={()=>{{this.props.add(item.book_cover,item.bookname)}
+                      obj = {
+                        bid: item.bid,
+                        author_name: item.author_name,
+                        book_cover: item.book_cover,
+                        book_info: item.book_info,
+                        bookname: item.bookname,
+                        size: item.size,
+                        stat_name: item.stat_name
+                      };
+                      window.localStorage.setItem(
+                        "detail",
+                        JSON.stringify(obj)
+                      );
+                    }}>
                   <div className='book-item-top'>
                     <h6 className='book-item-name'>{item.bookname}</h6>
                     <div className='book-item-tag'>
@@ -66,7 +94,7 @@ class Boys extends Component{
   }
   componentDidMount() {
     
-    this.props.getGirls()
+    !this.props.boyList.length&&this.props.getGirls()
   }
 }
 const mapState = (state)=>({
@@ -83,6 +111,9 @@ const mapDispatch=(dispatch)=>({
   },
   getGirls(){
     dispatch(actionCreators.getGirlsList())
+  },
+  add(book_cover, bookname) {
+    dispatch(actionCreators.getInfo(book_cover, bookname));
   }
 })
 

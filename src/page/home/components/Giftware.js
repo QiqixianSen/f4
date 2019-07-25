@@ -30,6 +30,7 @@ class Giftware extends Component {
                     className="title-li"
                     key={item.bid}
                     onClick={() => {
+                      {this.props.add(item.book_cover,item.bookname)}
                       obj = {
                         bid: item.bid,
                         author_name: item.author_name,
@@ -63,7 +64,7 @@ class Giftware extends Component {
     );
   }
   componentDidMount() {
-    this.props.getList();
+    !this.props.giftList.length&&this.props.getList();
   }
 }
 const mapState = state => ({
@@ -72,8 +73,11 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   getList() {
     dispatch(actionCreators.getListInfo());
-  }
+  },
   //获取数据
+  add(book_cover, bookname) {
+    dispatch(actionCreators.getInfo(book_cover, bookname));
+  }
 });
 
 export default connect(

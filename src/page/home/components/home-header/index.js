@@ -15,7 +15,7 @@ class HomeHeader extends Component {
                         src="http://c-shuqi.11222.cn/assets/logo_7a44de2.png"
                         alt=""
                     />
-                    <span>小奇小说</span>
+                    <span>筱柒小说</span>
                 </div>
                 <div className="header-right">
                     <Link to="/login">
