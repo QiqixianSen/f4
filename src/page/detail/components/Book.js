@@ -11,11 +11,13 @@ class Book extends Component {
   constructor() {
     super();
     this.state = {
-      show: false
+      show: false,
+      data: JSON.parse(localStorage.getItem("detail"))
     };
     this.changeShow = this.changeShow.bind(this);
   }
   getBottonArea() {
+    console.log(this.props.cartList);
     index = this.props.cartList.findIndex(
       item => item.title === this.props.bookname
     );
@@ -68,13 +70,13 @@ class Book extends Component {
       <div className="book-detail">
         <div>
           <div className="book-info">
-            <img src={this.props.book_cover} alt="" />
+            <img src={this.state.data.book_cover} alt="" />
             <div>
-              <h4 className="book-title">{this.props.bookname}</h4>
-              <p className="book-author">{this.props.author_name}</p>
+              <h4 className="book-title">{this.state.data.bookname}</h4>
+              <p className="book-author">{this.state.data.author_name}</p>
               <p className="book-tag">
                 <span>青春校园</span>
-                <span>{this.props.size}字</span>
+                <span>{this.state.data.size}字</span>
               </p>
               <p className="book-author">已完结</p>
             </div>
@@ -83,7 +85,7 @@ class Book extends Component {
           <div className="book-desc">
             {this.getBottonArea()}
             <p className={this.state.show ? "p-spe" : " "}>
-              {this.props.book_info}
+              {this.state.data.book_info}
             </p>
             <Icon
               type={this.state.show ? "up" : "down"}
@@ -96,7 +98,7 @@ class Book extends Component {
           <List.Item arrow="horizontal" multipleLine onClick={() => {}}>
             <i className="iconfont icon-3lishi" />
             <i>最新</i>
-            <span>{this.props.stat_name}</span>
+            <span>{this.state.data.stat_name}</span>
           </List.Item>
           <List.Item arrow="horizontal" multipleLine onClick={() => {}}>
             <i className="iconfont icon-mulu" />
@@ -116,13 +118,6 @@ class Book extends Component {
 }
 const mapState = state => ({
   list: state.detail.detailList,
-  bid: state.home.bid,
-  author_name: state.home.author_name,
-  book_cover: state.home.book_cover,
-  book_info: state.home.book_info,
-  bookname: state.home.bookname,
-  size: state.home.size,
-  stat_name: state.home.stat_name,
   cartList: state.detail.cartList
 });
 

@@ -11,7 +11,7 @@ class Boys extends Component{
         <div>
           <div className='title-header'>
             <i className='iconfont icon-ChildhoodDevelopment boy'></i>
-            <h3 className='home-title'>猛男标配</h3>
+            <h3 className='home-title'>{this.props.children}</h3>
           </div>
           
           <ul className='title-ul'>
@@ -63,7 +63,11 @@ class Boys extends Component{
       </div>
       
   )
-}
+  }
+  componentDidMount() {
+    
+    this.props.getGirls()
+  }
 }
 const mapState = (state)=>({
 boyList:state.home.boyList
@@ -77,7 +81,9 @@ const mapDispatch=(dispatch)=>({
   handleDetail(bid,author_name,book_cover,book_info,bookname,size,stat_name){
     dispatch(actionCreators.getInfo(bid,author_name,book_cover,book_info,bookname,size,stat_name))
   },
-
+  getGirls(){
+    dispatch(actionCreators.getGirlsList())
+  }
 })
 
 

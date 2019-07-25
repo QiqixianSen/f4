@@ -64,7 +64,10 @@ class Girls extends Component{
         </div>
         
     )
-}
+  }
+  componentDidMount() {
+    this.props.getGirls()
+  }
 
 }
 const mapState = (state)=>({
@@ -80,6 +83,9 @@ const mapDispatch=(dispatch)=>({
   handleDetail(bid,author_name,book_cover,book_info,bookname,size,stat_name){
     dispatch(actionCreators.getInfo(bid,author_name,book_cover,book_info,bookname,size,stat_name))
   },
+  getGirls(){
+    dispatch(actionCreators.getGirlsList())
+  }
 
 })
 

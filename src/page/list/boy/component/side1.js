@@ -5,8 +5,9 @@ import * as actionCreators from "../../../home/store/actionCreators";
 import "./index.scss";
 
 
- class Side1 extends Component {
-    render() {   
+class Side1 extends Component {
+    render() {
+   
     return (
       <div>
         <div className="classTypes">
@@ -15,8 +16,8 @@ import "./index.scss";
         <ul className="page1">
           {this.props.list.content.slice(0,4).map(item => {
             return (<Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7520816`} >
-                <div key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
-              <li className="pagelist" key={item.bid}>
+            <div key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
+              <li className="pagelist" key={item.id}>
                 <div className="book-img">
                   <img
                     src={item.book_cover}
@@ -27,7 +28,7 @@ import "./index.scss";
                 <div className="book-writer">{item.author_name}</div>
               </li>
               </div>
-              </Link>);
+              </Link>);;
           })}
             </ul>
       </div>

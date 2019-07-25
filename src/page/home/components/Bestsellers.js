@@ -62,6 +62,9 @@ class Bestsellers extends Component {
       </div>
     );
   }
+  componentDidMount() {
+    this.props.getBest()
+}
 }
 
 const mapState = state => ({
@@ -70,6 +73,9 @@ const mapState = state => ({
 const mapDispatch = dispatch =>({
   handleDetail(bid,author_name,book_cover,book_info,bookname,size,stat_name){
     dispatch(actionCreators.getInfo(bid,author_name,book_cover,book_info,bookname,size,stat_name))
+  },
+  getBest(){
+    dispatch(actionCreators.getBestList())
   },
 })
 

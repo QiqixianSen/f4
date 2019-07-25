@@ -7,8 +7,7 @@ import Side1 from "./side1"
 import "./index.scss";
 
 class Hotlist extends Component {
-  render() {
-    console.log(this.props.swiperlist)
+  render() {   
   return (
    <div className="hotlist">
     <div className="title-header">
@@ -17,9 +16,9 @@ class Hotlist extends Component {
     </div>
     <div className="swiper-main swiper-container">
       <ul className="swiper-wrapper">
-            {this.props.swiperlist.map((item,index)=>{
-              return (
-                <li className="swiper-slide" key={index} ><Side1 list={item} key={item.bid}/></li>
+          {this.props.hotlist.map((item,index )=> {
+              return ( 
+               <li className="swiper-slide" key={index}><Side1 list={item} key={item.bid}/></li> 
               )
             })
             }     
@@ -56,12 +55,12 @@ class Hotlist extends Component {
 }
 
 const mapstate = state => ({
-  swiperlist: state.list.swiperlist
+  hotlist: state.list.hotlist
 });
 
 const mapdispatch = dispatch => ({
   todoswiper() {
-    dispatch(actionCreators.getswiperlist());
+    dispatch(actionCreators.getboylist());
   }
 });
 
