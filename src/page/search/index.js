@@ -25,7 +25,11 @@ class index extends Component {
           <div className="seachList">
             {this.props.reList.map(item => {
               return (
-                <div className="list-sea" key={item.title}>
+                <div
+                  className="list-sea"
+                  key={item.title}
+                  onClick={this.godeTail}
+                >
                   <div className="list">{item.title}</div>
                 </div>
               );
@@ -34,7 +38,11 @@ class index extends Component {
           <ul className="searchcont">
             {this.props.searchList &&
               this.props.searchList.map((item, index) => {
-                return <li key={index}>{item}</li>;
+                return (
+                  <li key={index} onClick={this.godeTail}>
+                    {item}
+                  </li>
+                );
               })}
           </ul>
           <div className="check">
@@ -54,6 +62,14 @@ class index extends Component {
     );
   }
 
+  // 跳转到详情页
+
+  godeTail = () => {
+    console.log(1);
+    this.props.history.push(
+      "/detail/authorId=3249274&bookId=7329628&authorName=%E5%AD%90%E8%8E%AB%E8%B0%A6"
+    );
+  };
   getSlist = q => {
     // console.log(this.props);
     this.props.getSearchlist(q);

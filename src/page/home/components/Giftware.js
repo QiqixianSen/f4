@@ -4,7 +4,7 @@ import * as actionCreators from "../store/actionCreators";
 import { Link } from "react-router-dom";
 import "../style.scss";
 import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
-
+let obj = {};
 class Giftware extends Component {
   render() {
     const { giftList, handleChange } = this.props;
@@ -30,14 +30,18 @@ class Giftware extends Component {
                     className="title-li"
                     key={item.bid}
                     onClick={() => {
-                      this.props.handleDetail(
-                        item.bid,
-                        item.author_name,
-                        item.book_cover,
-                        item.book_info,
-                        item.bookname,
-                        item.size,
-                        item.stat_name
+                      obj = {
+                        bid: item.bid,
+                        author_name: item.author_name,
+                        book_cover: item.book_cover,
+                        book_info: item.book_info,
+                        bookname: item.bookname,
+                        size: item.size,
+                        stat_name: item.stat_name
+                      };
+                      window.localStorage.setItem(
+                        "detail",
+                        JSON.stringify(obj)
                       );
                     }}
                   >
@@ -68,30 +72,8 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   getList() {
     dispatch(actionCreators.getListInfo());
-  },
-  //获取数据
-
-  handleDetail(
-    bid,
-    author_name,
-    book_cover,
-    book_info,
-    bookname,
-    size,
-    stat_name
-  ) {
-    dispatch(
-      actionCreators.getInfo(
-        bid,
-        author_name,
-        book_cover,
-        book_info,
-        bookname,
-        size,
-        stat_name
-      )
-    );
   }
+  //获取数据
 });
 
 export default connect(
