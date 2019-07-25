@@ -6,6 +6,7 @@ import search from "../../../../statics/images/search.png";
 import "./index.scss";
 
 class HomeHeader extends Component {
+
     render() {
         return (
             <div className="home-header">
@@ -31,6 +32,7 @@ class HomeHeader extends Component {
             </div>
         );
     }
+
 }
 
 export default HomeHeader;
