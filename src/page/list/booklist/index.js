@@ -13,9 +13,9 @@ class Booklist extends Component {
         <Header {...this.props}>精品书单</Header>
         <div className="listmain">
           <ul>
-            {list.map(item => {
+            {list.map((item, index) => {
               return (
-                <li key={item.bid}>
+                <li key={index}>
                   <div className="textside">
                     <div className="textmain">
                       <h3>{item.title}</h3>
@@ -62,7 +62,7 @@ const mapState = state => ({
 const mapdispatch = dispatch => ({
   insbooklist() {
     dispatch(actionCreators.getbookinfo());
-  },
+  }
 });
 
 export default connect(
