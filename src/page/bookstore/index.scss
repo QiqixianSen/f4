@@ -35,13 +35,18 @@
 .bookList {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  // justify-content: space-around;
   z-index: 999;
   position: absolute;
   top: px2rem(58);
+  text-align: center;
+  background-color: #fff;
   li {
-    width: 24%;
-    padding: px2ren(12) px2ren(24) px2ren(12) 0;
+    width: 33%;
+    padding-top: px2rem(12);
+    position: relative;
+    // padding: px2ren(12) px2ren(24) px2ren(12) 0;
     img {
       width: px2rem(93);
     }
@@ -51,7 +56,19 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      width: 100%;
+      width: px2rem(93);
+    }
+    .delBook {
+      width: px2rem(15);
+      height: px2rem(15);
+      font-size: 12px;
+      // border: 0.2rem solid #333;
+      background-color: red;
+      color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: px2rem(10);
+      right: px2rem(15);
     }
   }
 }

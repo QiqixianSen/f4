@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import Home from "./page/home";
@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <HashRouter>
           <div>
             <Switch>
               <Route path="/bookstore" component={Bookstore} />
@@ -36,7 +36,7 @@ class App extends Component {
               <Route path="/" component={Home} />
             </Switch>
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </Provider>
     );
   }
