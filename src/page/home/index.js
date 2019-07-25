@@ -32,8 +32,7 @@ class Home extends Component {
     }
     componentDidMount(){
         this.props.getRem()
-        this.props.getBest()
-        this.props.getGirls()
+       
     }
 }
 
@@ -41,12 +40,8 @@ const mapDispatch=(dispatch)=>({
     getRem(){
         dispatch(actionCreators.getRemList())
       },
-      getBest(){
-        dispatch(actionCreators.getBestList())
-      },
-      getGirls(){
-        dispatch(actionCreators.getGirlsList())
-      }
+ 
+
 
 })
 

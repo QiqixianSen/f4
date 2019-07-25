@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Boys from "../../home/components/Boys"
 import Footer from "../../../common/footer"
 import Header from "../../../common/header"
-import Hotlist from "../girl/component/hoslist"
+import Hotlist from "../boy/component/hoslist"
 import Bestsellers from "../../home/components/Bestsellers"
 
 class Boysbook extends Component{
