@@ -4,7 +4,7 @@ const defaultState = {
     // detailList:[],//详情
     commentList:[],
     otherList:[],
-    img:''
+    cartList:[]
 }
 
 export default (state=defaultState,action)=>{
@@ -16,7 +16,7 @@ export default (state=defaultState,action)=>{
         case constants.CHANGE_DETAIL:
             return Object.assign({},state,{detailList:action.detailList})
             case constants.ADD:
-            return Object.assign({},state,{img:action.image})
+            return Object.assign({},state,{cartList:[...state.cartList,action.list]})
         default:
             return state
     }

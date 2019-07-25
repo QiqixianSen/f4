@@ -53,12 +53,12 @@ class Detail extends Component{
 
 const mapDispatch=(dispatch,props)=>({
     getCommentInfo(){
-        console.log(props)
+        
         dispatch(actionCreators.getBooks(props.match.params.id))
     },
 
     getOtherInfo(){
-        console.log(props)
+       
         dispatch(actionCreators.getOtherDetail())
     },
 

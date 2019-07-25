@@ -5,14 +5,62 @@ import { connect } from "react-redux";
 import * as actionCreators from "../store/actionCreators";
 
 var book_arr = [];
+let disabled = false;
+let index = -1;
 class Book extends Component {
   constructor() {
     super();
     this.state = {
-      show: false,
-      disabled: false
+      show: false
     };
     this.changeShow = this.changeShow.bind(this);
+  }
+  getBottonArea() {
+    index = this.props.cartList.findIndex(
+      item => item.title === this.props.bookname
+    );
+    if (index !== -1) {
+      console.log(this.props.bookname);
+      disabled = true;
+    } else {
+      disabled = false;
+    }
+
+    console.log(index);
+    return (
+      <div className="book-choice">
+        <Button type="primary" inline style={{ background: "red" }}>
+          继续阅读
+        </Button>
+        <Button
+          type="primary"
+          inline
+          style={{ background: "#fff", color: "#108ee9" }}
+        >
+          继续下载
+        </Button>
+        <Button
+          disabled={disabled}
+          type="primary"
+          inline
+          style={{ background: "#fff", color: "#108ee9" }}
+          onClick={() => {
+            {
+              this.props.addCart();
+            }
+
+            book_arr.push({
+              img: this.props.book_cover,
+              name: this.props.bookname
+            });
+            window.localStorage.setItem("book", JSON.stringify(book_arr));
+            this.props.addCart(this.props.book_cover, this.props.bookname);
+          }}
+        >
+          加入书架
+        </Button>
+      </div>
+    );
   }
 
   render() {
@@ -31,37 +79,9 @@ class Book extends Component {
               <p className="book-author">已完结</p>
             </div>
           </div>
-          <div className="book-choice">
-            <Button type="primary" inline style={{ background: "red" }}>
-              继续阅读
-            </Button>
-            <Button
-              type="primary"
-              inline
-              style={{ background: "#fff", color: "#108ee9" }}
-            >
-              继续下载
-            </Button>
-            <Button
-              type="primary"
-              inline
-              style={{ background: "#fff", color: "#108ee9" }}
-              onClick={() => {
-                this.setState({
-                  disabled: true
-                });
-                book_arr.push({
-                  img: this.props.book_cover,
-                  name: this.props.bookname
-                });
-                window.localStorage.setItem("book", JSON.stringify(book_arr));
-                this.props.addCart(this.props.book_cover, this.props.bookname);
-              }}
-            >
-              加入书架
-            </Button>
-          </div>
+
           <div className="book-desc">
+            {this.getBottonArea()}
             <p className={this.state.show ? "p-spe" : " "}>
               {this.props.book_info}
             </p>
@@ -102,7 +122,8 @@ const mapState = state => ({
   book_info: state.home.book_info,
   bookname: state.home.bookname,
   size: state.home.size,
-  stat_name: state.home.stat_name
+  stat_name: state.home.stat_name,
+  cartList: state.detail.cartList
 });
 
 const mapDispatch = dispatch => ({

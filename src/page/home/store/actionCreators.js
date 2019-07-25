@@ -55,7 +55,7 @@ export const getListInfo=()=>{
             const data=res.data.data.module;
             const list = data[3].content
             dispatch(changeGiftList(list))
-            console.log(list)
+    
     
         })
     }
@@ -90,7 +90,6 @@ export const getGirlsList = ()=>{
         axios.get('http://bookstoreapi.shuqireader.com/eva_bookstore/v1/module/query?appId=1&pageId=1&channelId=&versionId=&ver=&shuqi_h5=&md5key=&userId=8000000&timestamp=1563871149&type=2&resetcache=&func_id=11%2C33%2C11%2C19%2C33%2C11%2C33%2C11%2C19%2C33&orderid=8%2C9%2C10%2C11%2C12%2C13%2C14%2C15%2C16%2C17&sign=4BE7358B96AFDAA64E8EA9D36E81F122&key=shuqiapi&_=1563871149263')
         .then(res=>{
             const data = res.data.data.module;
-            console.log(data);
             const name= data[3].m_s_name;
             const girlList = data[3].content;
             const boyList = data[8].content;

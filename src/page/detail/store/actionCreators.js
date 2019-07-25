@@ -14,8 +14,10 @@ export const changeDetail=(datas)=>({
 })
 export const add=(image,title)=>({
     type:constants.ADD,
-    image,
-    title
+    list:{
+        image,
+        title
+    }
     
 })
 export const getBooks=(id)=>{

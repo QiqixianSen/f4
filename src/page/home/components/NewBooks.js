@@ -15,7 +15,7 @@ class NewBooks extends Component{
             {this.props.newList.map((item, index) => {
           if (index === 0) {
             return (
-              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=7520816`} >
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
               <div className="new-one" key={index}>
                 <div className="new-left">
                   <img src={item.book_cover} alt="" />
@@ -38,7 +38,7 @@ class NewBooks extends Component{
             );
           } else {
             return (
-              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}&id=4743151`} >
+              <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
               <li className="new-li" key={index}>
                 <i>{index+1}</i>
                 <h3>{item.bookname}</h3>
