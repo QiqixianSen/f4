@@ -18,12 +18,11 @@ class Home extends Component {
             <div>
                 <Header />
                 <HomeNav />
-                <Giftware />
-                <Girls getGirls={this.props.getGirls}>女生美文</Girls>
-                {this.props.getGirls()}
-                <Boys />
+                <Giftware/> 
+                <Girls {...this.props}>女生美文</Girls> 
+                <Boys {...this.props}>男生热文</Boys>
                 <NewBooks />
-                <Bestsellers />
+                <Bestsellers {...this.props}>小奇畅销榜</Bestsellers>
                 <Choiceness />
                 <Recommend />
                 <Footer />
@@ -33,8 +32,8 @@ class Home extends Component {
     }
     componentDidMount(){
         this.props.getRem()
-        this.props.getBest()
-        
+
+    
     }
 }
 
@@ -42,12 +41,8 @@ const mapDispatch=(dispatch)=>({
     getRem(){
         dispatch(actionCreators.getRemList())
       },
-      getBest(){
-        dispatch(actionCreators.getBestList())
-      },
-      getGirls(){
-        dispatch(actionCreators.getGirlsList())
-      }
+ 
+
 
 })
 
