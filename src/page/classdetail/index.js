@@ -11,7 +11,6 @@ class ClassDetail extends Component {
     };
     cid = this.props.location.pathname.split("/")[2];
     render() {
-        console.log(this.state);
         let { location } = this.props;
         let name = decodeURI(location.search.substring(1));
         name = name.split("?")[0];
@@ -44,7 +43,6 @@ class ClassDetail extends Component {
                                 );
                             })}
                             {this.state.classfication2.map(item => {
-                                console.log(this.state.classfication2);
                                 return (
                                     <li
                                         key={item.id}
