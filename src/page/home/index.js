@@ -11,15 +11,15 @@ import Bestsellers from "./components/Bestsellers";
 import Choiceness from "./components/Choiceness";
 import Recommend from "./components/Recommend";
 import Footer from '../../common/footer'
-
+let obj = {};
 class Home extends Component {
     render() {
         return (
             <div>
                 <Header />
                 <HomeNav />
-                <Giftware/> 
-                <Girls {...this.props}>女生美文</Girls> 
+                <Giftware />
+                <Girls {...this.props}>女生美文</Girls>
                 <Boys {...this.props}>男生热文</Boys>
                 <NewBooks />
                 <Bestsellers {...this.props}>小奇畅销榜</Bestsellers>
@@ -30,20 +30,6 @@ class Home extends Component {
             </div>
         );
     }
-    componentDidMount(){
-        this.props.getRem()
 
-    
-    }
 }
-
-const mapDispatch=(dispatch)=>({
-    getRem(){
-        dispatch(actionCreators.getRemList())
-      },
- 
-
-
-})
-
-export default connect(null,mapDispatch)(Home);
+export default connect(null,null)(Home);

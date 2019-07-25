@@ -12,10 +12,8 @@ const defaultState = {
   bid:'',
   author_name:'',
   book_cover:'',
-  book_info:'',
-  bookname:'',
-  size:'',
-  stat_name:''
+  bookname:''
+
 };
 
 export default (state = defaultState, action) => {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import * as actionCreators from "../store/actionCreators";
 import "../style.scss";
 import "../../../statics/font_1307227_9qrecju4ty/iconfont.css";
-
+let obj = {};
 class Bestsellers extends Component {
   render() {
     return (
@@ -17,7 +17,21 @@ class Bestsellers extends Component {
           if (index === 0) {
             return (
               <Link key={item.bid} to={`/detail/authorId=${item.author}&bookId=${item.bid}&authorName=${item.author_name}`} >
-              <div className="new-one"  key={item.bid} onClick={()=>{this.props.handleDetail(item.bid,item.author_name,item.book_cover,item.book_info,item.bookname,item.size,item.stat_name)}}>
+              <div className="new-one"  key={item.bid} onClick={()=>{{this.props.add(item.book_cover,item.bookname)}
+                      obj = {
+                        bid: item.bid,
+                        author_name: item.author_name,
+                        book_cover: item.book_cover,
+                        book_info: item.book_info,
+                        bookname: item.bookname,
+                        size: item.size,
+                        stat_name: item.stat_name
+                      };
+                      window.localStorage.setItem(
+                        "detail",
+                        JSON.stringify(obj)
+                      );
+                    }}>
                 <div className="new-left">
                   <img src={item.book_cover} alt="" />
                   <span className="new-num">{index + 1}</span>
@@ -63,7 +77,7 @@ class Bestsellers extends Component {
     );
   }
   componentDidMount() {
-    this.props.getBest()
+    !this.props.getBest.length&&this.props.getBest()
 }
 }
 
@@ -77,6 +91,9 @@ const mapDispatch = dispatch =>({
   getBest(){
     dispatch(actionCreators.getBestList())
   },
+  add(book_cover, bookname) {
+    dispatch(actionCreators.getInfo(book_cover, bookname));
+  }
 })
 
 export default connect(

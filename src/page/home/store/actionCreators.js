@@ -36,15 +36,10 @@ export const changeBoy=(boyList)=>({
     boyList,
 
 })
-export const getInfo=(bid,author_name,book_cover,book_info,bookname,size,stat_name)=>({
+export const getInfo=(book_cover,bookname)=>({
     type:constants.AA,
-    bid,
-    author_name,
     book_cover,
-    book_info,
-    bookname,
-    size,
-    stat_name
+    bookname
 
 })
 

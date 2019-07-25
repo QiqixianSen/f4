@@ -118,7 +118,10 @@ class Book extends Component {
 }
 const mapState = state => ({
   list: state.detail.detailList,
-  cartList: state.detail.cartList
+  cartList: state.detail.cartList,
+  bookname: state.home.bookname,
+  book_cover:state.home.book_cover
+  
 });
 
 const mapDispatch = dispatch => ({
