@@ -164,10 +164,10 @@ export default class Login extends Component {
                         this.setState({
                           checked: this.state.checked === "" ? "checked" : ""
                         });
-                        console.log(this.state.checked);
+                        // console.log(this.state.checked);
                       }}
                       onChange={() => {
-                        console.log(222);
+                        // console.log(222);
                       }}
                     />
                     &emsp;同意<span>《阿里文学用户协议》</span>和

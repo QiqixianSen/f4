@@ -9,6 +9,7 @@ import "./index.scss";
 class index extends Component {
   render() {
     // console.log(this.props);
+    // console.log(this.props.searchList);
     return (
       <div>
         <NavBar {...this.props}>搜索中心</NavBar>
@@ -35,16 +36,18 @@ class index extends Component {
               );
             })}
           </div>
-          <ul className="searchcont">
-            {this.props.searchList &&
-              this.props.searchList.map((item, index) => {
-                return (
-                  <li key={index} onClick={this.godeTail}>
-                    {item}
-                  </li>
-                );
-              })}
-          </ul>
+          {this.props.searchList[0] && (
+            <ul className="searchcont">
+              {this.props.searchList &&
+                this.props.searchList.map((item, index) => {
+                  return (
+                    <li key={index} onClick={this.godeTail}>
+                      {item}
+                    </li>
+                  );
+                })}
+            </ul>
+          )}
           <div className="check">
             <span
               className="checkout"
@@ -76,7 +79,7 @@ class index extends Component {
   };
   checkList = () => {
     // console.log(this.props);
-    console.log(111);
+    // console.log(111);
     this.props.getreList();
   };
   componentDidMount() {

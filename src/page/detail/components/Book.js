@@ -17,18 +17,18 @@ class Book extends Component {
     this.changeShow = this.changeShow.bind(this);
   }
   getBottonArea() {
-    console.log(this.props.cartList);
+    // console.log(this.props.cartList);
     index = this.props.cartList.findIndex(
       item => item.title === this.props.bookname
     );
     if (index !== -1) {
-      console.log(this.props.bookname);
+      // console.log(this.props.bookname);
       disabled = true;
     } else {
       disabled = false;
     }
 
-    console.log(index);
+    // console.log(index);
     return (
       <div className="book-choice">
         <Button type="primary" inline style={{ background: "red" }}>
@@ -120,8 +120,7 @@ const mapState = state => ({
   list: state.detail.detailList,
   cartList: state.detail.cartList,
   bookname: state.home.bookname,
-  book_cover:state.home.book_cover
-  
+  book_cover: state.home.book_cover
 });
 
 const mapDispatch = dispatch => ({

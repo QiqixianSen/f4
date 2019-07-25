@@ -36,7 +36,7 @@ export const getSearchList = q => {
       )
       .then(response => {
         let res = response.data.data;
-        console.log(res);
+        // console.log(res);
         dispatch(getSearch(res));
       });
   };

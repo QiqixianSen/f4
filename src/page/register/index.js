@@ -39,7 +39,7 @@ export default class Register extends Component {
   };
 
   setarr = () => {
-    console.log(this.state.arr);
+    // console.log(this.state.arr);
     this.setState({
       arr: rannum(4),
       bgc: randomColor(),
@@ -52,10 +52,10 @@ export default class Register extends Component {
       username: this.state.phone,
       password: this.state.password
     };
-    console.log(obj);
+    // console.log(obj);
     axios.post("http://localhost:9090/sign-up", obj).then(response => {
       let res = response.data;
-      console.log(res);
+      // console.log(res);
       if (res.code === 0) {
         Toast.info("注册成功", 1);
       } else {
@@ -73,7 +73,7 @@ export default class Register extends Component {
             type="phone"
             value={this.state.phone}
             onChange={value => {
-              console.log(this.state.arr);
+              // console.log(this.state.arr);
               this.setState({
                 phone: value
               });
