@@ -21,14 +21,15 @@ export default class index extends Component {
           </div>
         </div>
         <ul className="bookList">
-          {arr.map((item, index) => {
-            return (
-              <li key={index}>
-                <img src={item.img} alt="" />
-                <p>{item.name}</p>
-              </li>
-            );
-          })}
+          {arr &&
+            arr.map((item, index) => {
+              return (
+                <li key={index}>
+                  <img src={item.img} alt="" />
+                  <p>{item.name}</p>
+                </li>
+              );
+            })}
         </ul>
         <Footer />
       </div>
