@@ -5,7 +5,7 @@ const RANK_API =
     "http://walden1.shuqireader.com/webapi/rank/classrelation?_=1563795056739";
 
 const SORTS_API =
-    "http://bookstoreapi.shuqireader.com/eva_bookstore/v1/stencil/query";
+    "http://bookstoreapi.shuqireader.com/eva_bookstore/v1/stencil/query";  
 
 export default {
     HOST: DEV_HOST,

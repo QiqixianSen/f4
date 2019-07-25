@@ -1,53 +1,72 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actionCreators";
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
 import Side1 from "./side1"
-import Side2 from "./side2"
-import Side3 from "./side3"
-import Side4 from "./side4"
 import "./index.scss";
 
 class Hotlist extends Component {
-
  render() {
- 
+//  console.log(this.props.swiperlist)
   return (
    <div className="hotlist">
     <div className="title-header">
      <i className="iconfont icon-EnergyResearch" />
-     <h3 className="home-title">热门女生分类</h3>
+     <h3 className="home-title">{this.props.children}</h3>
     </div>
     <div className="swiper-main swiper-container">
-     <ul className="swiper-wrapper">
-      <li className="swiper-slide"><Side1 /></li>
-      <li className="swiper-slide"><Side2 /></li>
-      <li className="swiper-slide"><Side3 /></li>
-      <li className="swiper-slide"><Side4 /></li>
-     </ul>
-     <div className="swiper-pagination"></div>
+      <ul className="swiper-wrapper">
+            {this.props.swiperlist.map(item=>{
+              return (
+                <li className="swiper-slide" key={item.bid}><Side1 list={item} key={item.bid}/></li>
+              )
+            })
+            }     
+      </ul>
+      <div className="swiper-pagination"></div>
     </div>
     <div className="delay-more">
      <p>加载更多</p>
     </div>
     <div className="split-line"></div>
    </div>
-  );
+   );
  }
   
- componentDidMount() {
+  componentDidMount() {
+    
   this.setState(
     () => {
      new Swiper('.swiper-container', {
-      loop: true,
-      autoplay: {
-       disableOnInteraction: false,
-      },
-      pagination: {
-       el: '.swiper-pagination'
-      }
-     })
+       observer: true, //修改swiper自己或子元素时，自动初始化swiper
+       observeParents: true, //修改swiper的父元素时，自动初始化swiper
+       loop: true,
+       autoplay: {
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination'
+        }
+        })
     }
    )
+   this.props.todoswiper(); 
  }
 }
-export default Hotlist;
+
+const mapstate = state => ({
+  swiperlist: state.list.swiperlist
+});
+
+const mapdispatch = dispatch => ({
+  todoswiper() {
+    dispatch(actionCreators.getswiperlist());
+  }
+});
+
+export default connect(
+  mapstate,
+  mapdispatch
+)(Hotlist);
+

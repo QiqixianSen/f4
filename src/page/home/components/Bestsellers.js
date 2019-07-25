@@ -11,7 +11,7 @@ class Bestsellers extends Component {
       <div>
         <div className="title-header">
           <i className="iconfont icon-EnergyResearch" />
-          <h3 className="home-title">销量极好榜</h3>
+          <h3 className="home-title">{this.props.children}</h3>
         </div>
         {this.props.bestList.map((item, index) => {
           if (index === 0) {

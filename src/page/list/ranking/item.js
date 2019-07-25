@@ -9,9 +9,12 @@ class Item extends Component {
         let { list } = this.props;
         let item = Object.keys(list);
         let cid = list[item].cid;
+        let relatedName = list[item].relatedName;
         return (
             <li className="list-item">
-                <Link to={"/classDetail/" + cid + "?" + item}>
+                <Link
+                    to={"/classDetail/" + cid + "?" + item + "?" + relatedName}
+                >
                     <div
                         className="img"
                         style={{

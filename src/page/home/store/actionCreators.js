@@ -56,7 +56,6 @@ export const getListInfo=()=>{
             const list = data[3].content
             dispatch(changeGiftList(list))
     
-    
         })
     }
 }
