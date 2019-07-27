@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
-
+import banner from "../../../../statics/images/2018020715462184.jpg"
 class index extends Component {
   render() {
     return (
@@ -42,7 +42,7 @@ class index extends Component {
         </div>
         <div className="home-banner">
           <a href="">
-            <img src="./banner.jpg" alt="" />
+            <img src={banner} alt="" />
           </a>
         </div>
       </>
