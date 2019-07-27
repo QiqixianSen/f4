@@ -36,7 +36,7 @@ class index extends Component {
               );
             })}
           </div>
-          {this.props.searchList[0] && (
+          {this.props.searchList && (
             <ul className="searchcont">
               {this.props.searchList &&
                 this.props.searchList.map((item, index) => {

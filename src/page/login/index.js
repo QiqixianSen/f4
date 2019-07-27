@@ -59,6 +59,22 @@ export default class Login extends Component {
     });
   };
 
+  loginJY = () => {
+    let obj = {
+      username: this.state.value,
+      password: this.state.jiaoyan
+    };
+    axios.post("http://localhost:9090/sign-in", obj).then(response => {
+      let res = response.data;
+      if (res.code === 0) {
+        Toast.success("登陆成功", 1);
+        this.props.history.push("/");
+      } else {
+        Toast.success("用户名密码错误", 1);
+      }
+    });
+  };
+
   onErrorClick = () => {
     if (this.state.hasError) {
       Toast.info("请输入 11 位的手机号码");
@@ -295,6 +311,7 @@ export default class Login extends Component {
                   </div>
                   <div className="btn">
                     <Button
+                      onClick={this.loginJY}
                       type="primary"
                       disabled={(() => {
                         if (

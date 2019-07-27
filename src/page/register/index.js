@@ -58,6 +58,7 @@ export default class Register extends Component {
       // console.log(res);
       if (res.code === 0) {
         Toast.info("注册成功", 1);
+        this.props.history.push("/login");
       } else {
         Toast.info("该用户已被注册", 1);
       }
